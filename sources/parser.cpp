@@ -1,9 +1,11 @@
 //
 // Created by FORTYSS on 05.11.2020.
 //
+
 #include "parser-lab-1.hpp"
 
 std::vector<Student> parser(const string& File, int len[4]) {
+  std::ifstream file;
   file.open(File);
   if (!file) {
     std::cout << "Нет файла с таким именем" << std::endl;

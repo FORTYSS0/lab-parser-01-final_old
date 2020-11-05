@@ -1,9 +1,7 @@
 // Copyright 2020 Your Name <your_email>
 
-#include <parser-lab-1.hpp>
-//#include <parser.hpp>
-//#include <printer.hpp>
-std::vector<Student> parser(const string& File, int len[4]) {
+#include "parser-lab-1.hpp"
+/*std::vector<Student> parser(const string& File, int len[4]) {
   file.open(File);
   if (!file) {
     std::cout << "Нет файла с таким именем" << std::endl;
@@ -135,12 +133,12 @@ void print(const std::vector<Student>& students, int len[4]) {
     std::cout << '|';
     std::cout << std::endl;
   }
-}
+}*/
 int main() {
   const ::string File =
       "/home/FORTYSS/Рабочий стол/1/lab-parser-01/sources/Students.json";
   int len[4] = {11, 3, 3, 11};
-  std::vector<Student> students = parser(File, len);
+  std::vector<Student> students = parser(File, len) ;
   print(students, len);
   return 0;
 }
