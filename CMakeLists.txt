@@ -19,37 +19,51 @@ HunterGate(
 )
 
 # TODO: rename project and delete this comment
-project(template)
+project(lab-parser-01)
 string(APPEND CMAKE_CXX_FLAGS " -pedantic -Werror -Wall -Wextra")
 string(APPEND CMAKE_CXX_FLAGS " -Wno-unused-command-line-argument")
 string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
 
 hunter_add_package(GTest)
 find_package(GTest CONFIG REQUIRED)
-
+hunter_add_package(nlohmann_json)
+find_package(nlohmann_json CONFIG REQUIRED)
 # TODO: change template word to project name and delete this comment
-add_library(template STATIC
+add_library(lab-parser-01 STATIC
   # enum your files and delete this comment
-  ${CMAKE_CURRENT_SOURCE_DIR}/sources/source.cpp
-)
+        ${CMAKE_CURRENT_SOURCE_DIR}/sources/parser-lab-1.cpp
+        sources/printer.cpp sources/parser.cpp include/parser.hpp include/printer.hpp)
 add_executable(tests
   # TODO: enum your files and delete this comment
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
 )
-
+add_executable(sources
+        # TODO: enum your files and delete this comment
+        ${CMAKE_CURRENT_SOURCE_DIR}/sources/parser-lab-1.cpp
+        )
 # TODO: change template word to project name and delete this comment
-target_include_directories(template
+target_include_directories(lab-parser-01
   PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
+target_include_directories(sources
+        PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
+        )
 target_include_directories(tests
   PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 # TODO: change template word to project name and delete this comment
-target_link_libraries(tests GTest::gtest_main template)
+target_link_libraries(tests GTest::gtest_main lab-parser-01)
+target_link_libraries(lab-parser-01 nlohmann_json::nlohmann_json)
+target_link_libraries(sources PUBLIC lab-parser-01)
 
 enable_testing()
 add_test(NAME unit_tests COMMAND tests)
-
+#if(BUILD_COVERAGE)
+ # set(ENABLE_COVERAGE ON CACHE BOOL "Enable coverage build." FORCE)
+ # list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+  #find_package(codecov)
+ # add_coverage(lab-01-parser)
+ # add_coverage(tests)
 if(BUILD_COVERAGE)
   function(ENABLE_PROJECT_COVERAGE PROJECT)
     target_compile_options(${PROJECT} PRIVATE --coverage)
@@ -61,7 +75,7 @@ if(BUILD_COVERAGE)
   list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
   find_package(codecov)
   # TODO: change template word to project name and delete this comment
-  enable_project_coverage(template)
+  enable_project_coverage(lab-parser-01)
   enable_project_coverage(tests)
   list(APPEND LCOV_REMOVE_PATTERNS "'${PROJECT_SOURCE_DIR}/tests/*'")
   coverage_evaluate()
