@@ -25,7 +25,7 @@ std::string any_print(const std::any& input) {
   }
   return output;
 }
-void print(const std::vector<Student>& students, int len[4]) {
+void print(const std::vector<Student>& students, size_t len[4]) {
   std::cout << '|';
   std::cout << std::setfill(' ') << " name" << std::setw(len[0]);
   std::cout << '|';
