@@ -7,8 +7,8 @@ TEST(Example, EmptyTest) {
     EXPECT_TRUE(true);
 }
 
-TEST(Check, opening){
-  string string_test_true =\
+TEST(Check_WFile, Opening){
+  string string_t =\
 R"({
   "items": [
     {
@@ -38,17 +38,16 @@ R"({
     "count": 3
   }
 })";
-  string jsonFile_test_true = "Students.json";
-  std :: ofstream students_test;
-  students_test.open(jsonFile_test_true);
-  students_test << string_test_true;
-  students_test.close();
-  JsonParser j;
-  bool statement = j.file_opening(jsonFile_test_true);
-  EXPECT_TRUE(statement);
+  string File = "Students.json";
+  std :: ofstream students;
+  students.open(File);
+  students << string_t;
+  students.close();
+  bool flag = input(File);
+  EXPECT_TRUE(flag);
 }
-TEST(Check_Work_Of_File, Emptynis) {
-  string string_test_true =\
+TEST(Check_WFile, Emptynis) {
+  string string_t =\
 R"({
   "items": [
     {
@@ -78,9 +77,14 @@ R"({
     "count": 3
   }
 })";
-  JsonParser j;
-  j.parse_string_to_json(string_test_true);
-  bool statement = j.file_emptynis();
+  string File = "Students.json";
+  std :: ofstream students;
+  students.open(File);
+  students << string_t;
+  students.close();
+  size_t len[4] = {11, 3, 3, 11};
+  std::vector<Student> student = parser(string_t, len) ;
+  bool statement = input(jsonFile_test_true);
   EXPECT_TRUE(statement);
 }
 TEST(Check_Work_Of_File, Arrayning) {
@@ -269,7 +273,7 @@ R"({
     "count": 3
   }
 })";
-  JsonParser j;
+  parser j;
   j.parse_string_to_json(string_test_true);
   j.extraction_data_from_json();
   j.maxLength();
@@ -621,5 +625,5 @@ R"(|---------------|--------|-----|---------|
   std::stringstream ref_stream;
   j.table_print(ref_stream);
   string table_res = j.get_table_final();
-  EXPECT_EQ(string_test_ta
+  EXPECT_EQ(string_test_table_true, table_res);
 }
