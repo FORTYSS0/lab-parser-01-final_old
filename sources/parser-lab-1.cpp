@@ -136,7 +136,7 @@ void print(const std::vector<Student>& students, int len[4]) {
 }*/
 int main() {
   const ::string File =
-      "/home/FORTYSS/Рабочий стол/1/lab-parser-01/sources/Students.json";
+      "/home/FORTYSS/Рабочий стол/1/lab-parser-01/sources/Student.json";
   int len[4] = {11, 3, 3, 11};
   std::vector<Student> students = parser(File, len) ;
   print(students, len);
