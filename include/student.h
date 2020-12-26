@@ -5,7 +5,7 @@
 struct Student {
   std::string Name;
   std::any Group;
-  double Avg;
+  std::any Avg;
   std::any Debt;
 };
 

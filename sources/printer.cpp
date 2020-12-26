@@ -51,8 +51,8 @@ void print(const std::vector<Student>& students, size_t len[4]) {
               << std::setw(len[0] + 3) << student.Name << '|' << ' ';
     std::cout << std::setfill(' ') << std::setw(len[1] + 4)
               << any_print(student.Group) << '|' << ' ';
-    std::cout << std::setfill(' ') << std::setw(len[2] + 2) << student.Avg
-              << '|' << ' ';
+    std::cout << std::setfill(' ') << std::setw(len[2] + 2)
+              << any_print(student.Avg)  << '|' << ' ';
     std::cout << std::setfill(' ') << std::setw(len[3] + 3)
               << any_print(student.Debt) << '|';
     std::cout << std::endl;
