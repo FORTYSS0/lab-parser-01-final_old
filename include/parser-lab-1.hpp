@@ -23,6 +23,7 @@ json data;
 
 std::vector<Student> parser(const string& File,size_t len[4]);
 bool input(const string& File)
+bool items_is_array()
 string any_print(const std::any& object);
 void print(const std::vector<Student>& students, size_t len[4]);
 #endif  // INCLUDE_HEADER_HPP_

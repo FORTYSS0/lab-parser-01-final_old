@@ -3,6 +3,7 @@
 //
 
 #include <parser-lab-1.hpp>
+
 bool input(const string& File){
   std::ifstream file;
   try {
@@ -19,6 +20,13 @@ bool input(const string& File){
     return false;
   }
   return true;
+}
+bool items_is_array() {
+  if (!data["items"].is_array()) {
+    throw std::runtime_error{"The items field is not an array"};
+  } else {
+    return true;
+  }
 }
 size_t Size(const json& value, const string& valueName, size_t& stringLength){
   if (static_cast<size_t>(
@@ -54,7 +62,7 @@ std::any getValue(const json& value, const string& valueName, size_t& stringLeng
 }
 std::vector<Student> parser(const string& File, size_t len[4]) {
     if (input(File)) {}
-
+    if(items_is_array()){}
       std::vector<Student> students;
       for (const auto& student : data.at("items")) {
         Student student_now;

@@ -77,54 +77,58 @@ R"({
     "count": 3
   }
 })";
+
+  size_t len[4] = {11, 3, 3, 11};
+  std::vector<Student> student = parser(string_t, len) ;
   string File = "Students.json";
   std :: ofstream students;
   students.open(File);
   students << string_t;
   students.close();
+  bool statement = input(File);
+  std :: stringstream out;
+  std::string s =  "json"+File+" the file is empty";
+  EXPECT_TRUE(statement&&(s==out.str()));
+}
+TEST(Check_WFile, Arrayning) {
+  string string_t =\
+R"({
+  "items": [
+    {
+      "name": "Ivanov Petr",
+      "group": "1",
+      "avg": "4.25",
+      "debt": null
+    },
+    {
+      "name": "Sidorov Ivan",
+      "group": 31,
+      "avg": 4,
+      "debt": "C++"
+    },
+    {
+      "name": "Pertov Nikita",
+      "group": "IU8-31",
+      "avg": 3.33,
+      "debt": [
+        "C++",
+        "Linux",
+        "Network"
+      ]
+    }
+  ],
+  "_meta": {
+    "count": 3
+  }
+})";
+
   size_t len[4] = {11, 3, 3, 11};
   std::vector<Student> student = parser(string_t, len) ;
-  bool statement = input(jsonFile_test_true);
-  EXPECT_TRUE(statement);
-}
-TEST(Check_Work_Of_File, Arrayning) {
-  string string_test_true =\
-R"({
-  "items": [
-    {
-      "name": "Ivanov Petr",
-      "group": "1",
-      "avg": "4.25",
-      "debt": null
-    },
-    {
-      "name": "Sidorov Ivan",
-      "group": 31,
-      "avg": 4,
-      "debt": "C++"
-    },
-    {
-      "name": "Pertov Nikita",
-      "group": "IU8-31",
-      "avg": 3.33,
-      "debt": [
-        "C++",
-        "Linux",
-        "Network"
-      ]
-    }
-  ],
-  "_meta": {
-    "count": 3
-  }
-})";
-  JsonParser j;
-  j.parse_string_to_json(string_test_true);
-  bool statement = j.file_arrayning();
-  EXPECT_TRUE(statement);
+  bool flag = items_is_arry();
+  EXPECT_TRUE(flag);
 }
 TEST(Check_Work_Of_File, Equalityning) {
-  string string_test_true =\
+  string string_t =\
 R"({
   "items": [
     {
@@ -154,8 +158,8 @@ R"({
     "count": 3
   }
 })";
-  JsonParser j;
-  j.parse_string_to_json(string_test_true);
+  size_t len[4] = {11, 3, 3, 11};
+  std::vector<Student> student = parser(string_t, len) ;
   bool statement = j.file_equalityning();
   EXPECT_TRUE(statement);
 }
