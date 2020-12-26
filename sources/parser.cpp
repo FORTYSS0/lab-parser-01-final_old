@@ -11,11 +11,11 @@ bool input(const string& File){
   }
   catch (std::exception& err) {
     if(!file)
-      std::cout << "There is no file with this name\nError: " << err.what()
-                       << std::endl;
+      throw std::runtime_error(
+          "There is no file with this name");
     else if(data.empty())
-      std::cout << "json "+File+" the file is empty\nError: " << err.what()
-                                   << std::endl;
+      throw std::runtime_error(
+          "json"+File+" the file is empty");
     return false;
   }
   return true;
