@@ -175,12 +175,12 @@ TEST(Check_Errors_Of_File, Opening_bad) {
   }
 }
 TEST(Check_Errors_Of_File, Emptynis_bad) {
-  string string_test_false =\
+  string string_f =\
 R"({
 })";
   string err_res = "Your json file is empty";
-  JsonParser j;
-  j.parse_string_to_json(string_test_false);
+  size_t len[4] = {11, 3, 3, 11};
+  std::vector<Student> student = parser(string_f, len) ;
   try{
     j.file_emptynis();
   } catch (std::runtime_error& error) {
@@ -188,7 +188,7 @@ R"({
   }
 }
 TEST(Check_Errors_Of_File, Arrayning_bad) {
-  string string_test_false =\
+  string string_f =\
 R"({
   "items": null,
   "_meta": {
@@ -196,8 +196,8 @@ R"({
   }
 })";
   string err_res = "The items field is not an array";
-  JsonParser j;
-  j.parse_string_to_json(string_test_false);
+  size_t len[4] = {11, 3, 3, 11};
+  std::vector<Student> student = parser(string_f, len) ;
   try{
     j.file_arrayning();
   } catch (std::runtime_error& error) {
@@ -205,7 +205,7 @@ R"({
   }
 }
 TEST(Check_Errors_Of_File, Equalityning_bad) {
-  string string_test_false =\
+  string string_f =\
 R"({
   "items": [
     {
@@ -237,8 +237,8 @@ R"({
 })";
   string err_res = "The data in _meta is not"
                    " equal to the length of the items array";
-  JsonParser j;
-  j.parse_string_to_json(string_test_false);
+  size_t len[4] = {11, 3, 3, 11};
+  std::vector<Student> student = parser(string_f, len) ;
   try{
     j.file_equalityning();
   } catch (std::runtime_error& error) {
@@ -247,7 +247,7 @@ R"({
 }
 //Length
 TEST(Check_Length, Count_Max_Length) {
-  string string_test_true =\
+  string string_t =\
 R"({
   "items": [
     {
@@ -277,8 +277,8 @@ R"({
     "count": 3
   }
 })";
-  parser j;
-  j.parse_string_to_json(string_test_true);
+  size_t len[4] = {11, 3, 3, 11};
+  std::vector<Student> student = parser(string_t, len) ;
   j.extraction_data_from_json();
   j.maxLength();
   int nMax_test = j.get_nMax();
@@ -289,7 +289,7 @@ R"({
   EXPECT_EQ(dMax_test, 7);
 }
 TEST(Check_Length, Count_Max_Length_Extra_Debt) {
-  const char* string_test_true =\
+  const char* string_t =\
 R"({
   "items": [
     {
@@ -319,8 +319,8 @@ R"({
     "count": 3
   }
 })";
-  JsonParser j;
-  j.parse_string_to_json(string_test_true);
+  size_t len[4] = {11, 3, 3, 11};
+  std::vector<Student> student = parser(string_t, len) ;
   j.extraction_data_from_json();
   j.maxLength();
   int nMax_test = j.get_nMax();
@@ -332,7 +332,7 @@ R"({
 }
 //Struct
 TEST(Check_Enter, Enter_to_struct) {
-  string string_test_true =\
+  string string_t =\
 R"({
   "items": [
     {
@@ -362,8 +362,8 @@ R"({
     "count": 3
   }
 })";
-  JsonParser j;
-  j.parse_string_to_json(string_test_true);
+  size_t len[4] = {11, 3, 3, 11};
+  std::vector<Student> student = parser(string_t, len) ;
   j.extraction_data_from_json();
   j.maxLength();
   bool statement = j.enter();
@@ -371,7 +371,7 @@ R"({
 }
 //Struct_False
 TEST(Check_Struct_False_Variants, Check_group) {
-  string string1_test_false =\
+  string string_f1 =\
 R"({
   "items": [
     {
@@ -391,7 +391,7 @@ R"({
     "count": 2
   }
 })";
-  string string2_test_false =\
+  string string_f2 =\
 R"({
   "items": [
     {
@@ -415,7 +415,7 @@ R"({
     "count": 2
   }
 })";
-  string string3_test_false =\
+  string string_f3 =\
 R"({
   "items": [
     {
@@ -435,9 +435,9 @@ R"({
     "count": 2
   }
 })";
-  JsonParser j;
   string err_res = "Invalid data type in the group field";
-  j.parse_string_to_json(string1_test_false);
+  size_t len[4] = {11, 3, 3, 11};
+  std::vector<Student> student = parser(string_f1, len) ;
   j.extraction_data_from_json();
   j.maxLength();
   try{
@@ -445,13 +445,13 @@ R"({
   } catch (std::runtime_error& error) {
     EXPECT_EQ(error.what(), err_res);
   }
-  j.parse_string_to_json(string2_test_false);
+  std::vector<Student> student2 = parser(string_f2, len) ;
   try{
     j.enter();
   } catch (std::runtime_error& error) {
     EXPECT_EQ(error.what(), err_res);
   }
-  j.parse_string_to_json(string3_test_false);
+  std::vector<Student> student3 = parser(string_f3, len) ;
   try{
     j.enter();
   } catch (std::runtime_error& error) {
@@ -580,7 +580,7 @@ R"({
 }
 //Table
 TEST(Check_Work_Of_Print_Table, Check_Printable_Table) {
-  string string_test_true =\
+  string string_t =\
 R"({
   "items": [
     {
@@ -610,7 +610,7 @@ R"({
     "count": 3
   }
 })";
-  string string_test_table_true =\
+  string table_t =\
 R"(|---------------|--------|-----|---------|
 | name          | group  |avg  | debt    |
 |---------------|--------|-----|---------|
@@ -621,13 +621,13 @@ R"(|---------------|--------|-----|---------|
 | Pertov Nikita | IU8-31 |3.33 | 3 items |
 |---------------|--------|-----|---------|
 )";
-  JsonParser j;
-  j.parse_string_to_json(string_test_true);
+  size_t len[4] = {11, 3, 3, 11};
+  std::vector<Student> student = parser(string_t, len) ;
   j.extraction_data_from_json();
   j.maxLength();
   j.enter();
   std::stringstream ref_stream;
   j.table_print(ref_stream);
   string table_res = j.get_table_final();
-  EXPECT_EQ(string_test_table_true, table_res);
+  EXPECT_EQ(table_t, table_res);
 }

@@ -6,11 +6,8 @@
 
 bool input(const string& File){
   std::ifstream file;
-  try {
     file.open(File);
     file >> data;
-  }
-  catch (std::exception& err) {
     if(!file)
       throw std::runtime_error(
           "There is no file with this name");
@@ -18,8 +15,6 @@ bool input(const string& File){
       throw std::runtime_error(
           "json"+File+" the file is empty");
     return false;
-  }
-  return true;
 }
 bool items_is_array() {
   if (!data["items"].is_array()) {
@@ -34,6 +29,7 @@ size_t Size(const json& value, const string& valueName, size_t& stringLength){
               .length()) > stringLength)
     return static_cast<int>(
         std::to_string(static_cast<float>(value.at(valueName))).length());
+  else return stringLength;
 }
 std::any getValue(const json& value, const string& valueName, size_t& stringLength) {
   if (!value.at(valueName)) {
