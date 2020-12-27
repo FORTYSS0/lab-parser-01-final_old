@@ -1,7 +1,7 @@
 // Copyright 2020 Your Name <your_email>
 
-#ifndef INCLUDE_HEADER_HPP_
-#define INCLUDE_HEADER_HPP_
+#ifndef INCLUDE_PARSER_LAB_1_HPP_
+#define INCLUDE_PARSER_LAB_1_HPP_
 
 #include <any>
 #include <nlohmann/json.hpp>
