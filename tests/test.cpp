@@ -85,10 +85,8 @@ R"({
   students.open(File);
   students << string_t;
   students.close();
-  bool statement = input(File);
-  std :: stringstream out;
-  std::string s =  "json"+File+" the file is empty";
-  EXPECT_TRUE(statement&&(s==out.str()));
+  bool flag = input(File);
+  EXPECT_TRUE(flag);
 }
 TEST(Check_WFile, Arrayning) {
   string string_t =\

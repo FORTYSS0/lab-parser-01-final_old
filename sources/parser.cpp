@@ -4,22 +4,20 @@
 
 #include <parser-lab-1.hpp>
 
-bool input(const string& File){
+bool input(const string& File) {
   std::ifstream file;
-    file.open(File);
-    file >> data;
-    if(!file)
-      throw std::runtime_error(
-          "There is no file with this name");
-    else if(data.empty())
-      throw std::runtime_error(
-          "json"+File+" the file is empty");
-    return false;
-}
-bool items_is_array() {
-  if (!data["items"].is_array()) {
-    throw std::runtime_error{"The items field is not an array"};
+  file.open(File);
+  if (!file) {
+    throw std::runtime_error("There is no file with this name");
   } else {
+    if (data.empty()) {
+      throw std::runtime_error("json" + File + " the file is empty");
+    }else {
+      file >> data;
+      if (!data["items"].is_array()) {
+        throw std::runtime_error{"The items field is not an array"};
+      }
+    }
     return true;
   }
 }
