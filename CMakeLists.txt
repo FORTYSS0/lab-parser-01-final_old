@@ -40,8 +40,6 @@ add_executable(tests
 
 target_link_libraries(tests GTest::gtest_main parser)
 
-target_link_libraries(parser nlohmann_json::nlohmann_json)
-
 
 
 enable_testing()
