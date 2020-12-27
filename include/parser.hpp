@@ -1,7 +1,7 @@
 // Copyright 2020 Your Name <your_email>
 
-#ifndef INCLUDE_PARSER_LAB_1_HPP_
-#define INCLUDE_PARSER_LAB_1_HPP_
+#ifndef INCLUDE_PARSER_HPP_
+#define INCLUDE_PARSER_HPP_
 
 #include <any>
 #include <nlohmann/json.hpp>
@@ -24,4 +24,4 @@ std::vector<Student> parser(const string& File, size_t len[4]);
 bool input(const string& File);
 string any_print(const std::any& object);
 void print(const std::vector<Student>& students, size_t len[4]);
-#endif  // INCLUDE_PARSER_LAB_1_HPP_
+#endif  // INCLUDE_PARSER_HPP_
