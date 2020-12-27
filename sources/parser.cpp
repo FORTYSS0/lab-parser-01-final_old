@@ -11,28 +11,31 @@ bool input(const string& File) {
   } else {
     if (data.empty()) {
       throw std::runtime_error("json" + File + " the file is empty");
-    }else {
+    } else {
       file >> data;
       if (!data["items"].is_array()) {
         throw std::runtime_error{"The items field is not an array"};
       }
     }
-    if(data["items"].size()!=data["meta"]["count"].get<size_t>()){
+    if (data["items"].size() != data["meta"]["count"].get<size_t>()) {
       throw std::runtime_error{
           "The data in _meta is not equal to the length of the items array"};
     }
     return true;
   }
 }
-size_t Size(const json& value, const string& valueName, size_t& stringLength){
+size_t Size(const json& value, const string& valueName, size_t& stringLength) {
   if (static_cast<size_t>(
-          std::to_string(static_cast<float>(value.at(valueName)))
-              .length()) > stringLength)
+          std::to_string(static_cast<float>(value.at(valueName))).length()) >
+      stringLength)
     return static_cast<int>(
         std::to_string(static_cast<float>(value.at(valueName))).length());
-  else return stringLength;
+  else {
+    return stringLength;
+  }
 }
-std::any getValue(const json& value, const string& valueName, size_t& stringLength) {
+std::any getValue(const json& value, const string& valueName,
+                  size_t& stringLength) {
   if (!value.at(valueName)) {
     throw std::runtime_error{"There is no field with with name: " + valueName};
   }
@@ -50,17 +53,21 @@ std::any getValue(const json& value, const string& valueName, size_t& stringLeng
       return std::any_cast<std::vector<std::string>>(value.at(valueName));
     } else if (value.at(valueName).is_null()) {
       return nullptr;
-    } else
+    } else {
       throw std::runtime_error("There is no correct-type field with name: " +
                                valueName);
-  } else
+    }
+  } else {
     throw std::runtime_error("There is no correct-type field with name: " +
                              valueName);
+  }
 }
 std::vector<Student> parser(const string& File, size_t len[4]) {
-    if (input(File)) {}
-    if(items_is_array()){}
-      std::vector<Student> students;
+  if (input(File)) {
+  }
+  if (items_is_array()) {
+  }
+  std::vector<Student> students;
       for (const auto& student : data.at("items")) {
         Student student_now;
         student_now.Name = student.at("name");
