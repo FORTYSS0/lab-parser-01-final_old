@@ -19,7 +19,7 @@ using json = nlohmann::json;
 
 json data;
 
-std::vector<Student> parser(const string& File,size_t len[4]);
+std::vector<Student> parser(const string& File, size_t len[4]);
 bool input(const string& File);
 bool items_is_array();
 string any_print(const std::any& object);
