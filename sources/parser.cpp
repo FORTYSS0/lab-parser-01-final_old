@@ -21,6 +21,7 @@ bool input(const string& File) {
       throw std::runtime_error{
           "The data in _meta is not equal to the length of the items array"};
     }
+    file.close();
     return true;
   }
 }
