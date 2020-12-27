@@ -41,7 +41,7 @@ R"({
 })";
   string File = "Students.json";
   std :: ofstream students;
-  students.open(File);
+  students.open(File, std::ios::out);
   students << string_t;
   students.close();
   bool flag = input(File);
@@ -82,7 +82,7 @@ R"({
   std::vector<Student> student = parser(string_t, len);
   string File = "Students.json";
   std :: ofstream students;
-  students.open(File);
+  students.open(File, std::ios::out);
   students << string_t;
   students.close();
   bool flag = input(File);
@@ -124,7 +124,7 @@ R"({
   std::vector<Student> student = parser(string_t, len);
   string File = "Students.json";
   std :: ofstream students;
-  students.open(File);
+  students.open(File, std::ios::out);
   students << string_t;
   students.close();
   bool flag = input(File);
@@ -165,7 +165,7 @@ R"({
   std::vector<Student> student = parser(string_t, len);
   string File = "Students.json";
   std :: ofstream students;
-  students.open(File);
+  students.open(File, std::ios::out);
   students << string_t;
   students.close();
   bool flag = input(File);
@@ -189,7 +189,7 @@ R"({
   std::vector<Student> student = parser(string_f, len);
   string FileF = "Student_false.json";
   std :: ofstream students;
-  students.open(FileF);
+  students.open(FileF, std::ios::out);
   students << string_f;
   students.close();
   string err = "json" + FileF + " the file is empty";
@@ -211,7 +211,7 @@ R"({
   std::vector<Student> student = parser(string_f, len);
   string FileF = "Student_false.json";
   std :: ofstream students;
-  students.open(FileF);
+  students.open(FileF, std::ios::out);
   students << string_f;
   students.close();
   string err = "The items field is not an array";
@@ -256,7 +256,7 @@ R"({
   std::vector<Student> student = parser(string_f, len);
   string FileF = "Student_false.json";
   std :: ofstream students;
-  students.open(FileF);
+  students.open(FileF, std::ios::out);
   students << string_f;
   students.close();
   string err =
@@ -314,7 +314,7 @@ R"(|---------------|--------|-----|---------|
   std::vector<Student> student = parser(string_t, len);
   string FileF = "Student_false.json";
   std :: ofstream students;
-  students.open(FileF);
+  students.open(FileF, std::ios::out);
   students << string_t;
   students.close();
   print(student, len);
