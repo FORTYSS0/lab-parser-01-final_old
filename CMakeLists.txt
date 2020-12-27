@@ -25,19 +25,21 @@ string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
 
 hunter_add_package(GTest)
 find_package(GTest CONFIG REQUIRED)
+
 hunter_add_package(nlohmann_json)
 find_package(nlohmann_json CONFIG REQUIRED)
 
 add_library(parser STATIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/sources/parser.cpp sources/printer.cpp)
-target_include_directories(parser PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-target_link_libraries(parser PUBLIC nlohmann_json::nlohmann_json)
+        ${CMAKE_CURRENT_SOURCE_DIR}/sources/parser.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/sources/printer.cpp)
 
 add_executable(tests
         ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
         )
 
-
+target_include_directories(parser PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_include_directories(tests PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(parser PUBLIC nlohmann_json::nlohmann_json)
 target_link_libraries(tests GTest::gtest_main parser)
 
 
@@ -46,12 +48,18 @@ enable_testing()
 add_test(NAME unit_tests COMMAND tests)
 
 if(BUILD_COVERAGE)
+    function(ENABLE_PROJECT_COVERAGE PROJECT)
+        target_compile_options(${PROJECT} PRIVATE --coverage)
+        target_link_libraries(${PROJECT} --coverage)
+        add_coverage(${PROJECT})
+    endfunction()
+
     set(ENABLE_COVERAGE ON CACHE BOOL "Enable coverage build." FORCE)
     list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
     find_package(codecov)
-
-    add_coverage(parser)
-    add_coverage(tests)
+    # TODO: change template word to project name and delete this comment
+    enable_project_coverage(parser)
+    enable_project_coverage(tests)
     list(APPEND LCOV_REMOVE_PATTERNS "'${PROJECT_SOURCE_DIR}/tests/*'")
     coverage_evaluate()
 endif()
