@@ -39,12 +39,12 @@ R"({
     "count": 3
   }
 })";
-  //string File = "Students.json";
+  string File = "Students.json";
   std :: ofstream students;
-  students.open("Students.json", std::ios::out);
+  students.open(File, std::ios::out);
   students << string_t;
+  bool flag = input(File);
   students.close();
-  bool flag = input("Students.json");
   EXPECT_TRUE(flag);
 }
 TEST(WFile, Emptynis) {
