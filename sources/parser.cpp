@@ -7,20 +7,16 @@ bool input(const string& File) {
   json data;
   std::ifstream file;
   file.open(File);
-  if (!file) {
+  if (!file)
     throw std::runtime_error("There is no file with this name");
-  }
-  if (data.empty()) {
+  if (data.empty())
     throw std::runtime_error("json" + File + " the file is empty");
-  }
   file >> data;
-  if (!data["items"].is_array()) {
+  if (!data["items"].is_array())
     throw std::runtime_error{"The items field is not an array"};
-  }
-  if (data["items"].size() != data["meta"]["count"].get<size_t>()) {
+  if (data["items"].size() != data["meta"]["count"].get<size_t>())
     throw std::runtime_error{
         "The data in _meta is not equal to the length of the items array"};
-  }
   file.close();
   return true;
 }
