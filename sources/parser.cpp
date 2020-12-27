@@ -63,20 +63,17 @@ std::any getValue(const json& value, const string& valueName,
   }
 }
 std::vector<Student> parser(const string& File, size_t len[4]) {
-  if (input(File)) {
-  }
-  if (items_is_array()) {
-  }
   std::vector<Student> students;
-      for (const auto& student : data.at("items")) {
-        Student student_now;
-        student_now.Name = student.at("name");
-        if (static_cast<size_t>(student_now.Name.length()) > len[0])
-          len[0] = static_cast<size_t>(student_now.Name.length());
-        student_now.Group = getValue(student, "group", len[1]);
-        student_now.Avg = getValue(student, "avg", len[2]);
-        student_now.Debt = getValue(student, "debt", len[3]);
-      }
-      return students;
+  if (input(File)) {
+    for (const auto& student : data.at("items")) {
+      Student student_now;
+      student_now.Name = student.at("name");
+      if (static_cast<size_t>(student_now.Name.length()) > len[0])
+        len[0] = static_cast<size_t>(student_now.Name.length());
+      student_now.Group = getValue(student, "group", len[1]);
+      student_now.Avg = getValue(student, "avg", len[2]);
+      student_now.Debt = getValue(student, "debt", len[3]);
+    }
+  }
+  return students;
 }
-
