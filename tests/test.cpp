@@ -44,9 +44,9 @@ R"({
   std :: ofstream students;
   students.open(File, std::ios::out);
   students << string_t;
+  students.close();
   std::vector<Student> student = parser(File, len);
   bool flag = input(File);
-  students.close();
   EXPECT_TRUE(flag);
 }
 TEST(WFile, Emptynis) {
