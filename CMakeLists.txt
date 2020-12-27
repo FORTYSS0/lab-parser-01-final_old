@@ -36,13 +36,11 @@ target_link_libraries(parser PUBLIC nlohmann_json::nlohmann_json)
 add_executable(tests
         ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
         )
-add_executable(parser-lab-1
-        ${CMAKE_CURRENT_SOURCE_DIR}/sources/parser-lab-1.cpp)
 
 
-target_link_libraries(tests gtest_main parser)
+target_link_libraries(tests GTest::gtest_main parser)
 
-target_link_libraries(parser-lab-1 PUBLIC parser)
+target_link_libraries(parser nlohmann_json::nlohmann_json)
 
 
 
