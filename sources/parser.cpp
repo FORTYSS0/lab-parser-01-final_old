@@ -18,6 +18,10 @@ bool input(const string& File) {
         throw std::runtime_error{"The items field is not an array"};
       }
     }
+    if(data["items"].size()!=data["meta"]["count"].get<size_t>()){
+      throw std::runtime_error{
+          "The data in _meta is not equal to the length of the items array"};
+    }
     return true;
   }
 }
