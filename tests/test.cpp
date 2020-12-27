@@ -39,6 +39,8 @@ R"({
     "count": 3
   }
 })";
+  size_t len[4] = {11, 3, 3, 11};
+  std::vector<Student> student = parser(string_t, len);
   string File = "Students.json";
   std :: ofstream students;
   students.open(File, std::ios::out);

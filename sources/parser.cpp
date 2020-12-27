@@ -9,7 +9,7 @@ bool input(const string& File) {
   file.open(File);
   if (!file)
     throw std::runtime_error("There is no file with this name");
-  if (!data.empty())
+  if (data.empty())
     throw std::runtime_error("json " + File + " the file is empty");
   file >> data;
   if (!data["items"].is_array())
