@@ -4,6 +4,7 @@
 #include <parser.hpp>
 
 bool input(const string& File) {
+  json data;
   std::ifstream file;
   file.open(File);
   if (!file) {
@@ -64,6 +65,7 @@ std::any getValue(const json& value, const string& valueName,
   }
 }
 std::vector<Student> parser(const string& File, size_t len[4]) {
+  json data;
   std::vector<Student> students;
   if (input(File)) {
     for (const auto& student : data.at("items")) {
