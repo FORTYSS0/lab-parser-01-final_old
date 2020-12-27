@@ -120,7 +120,7 @@ R"({
 })";
 
   size_t len[4] = {11, 3, 3, 11};
-  std::vector<Student> student = parser(string_t, len) ;
+  std::vector<Student> student = parser(string_t, len);
   string File = "Students.json";
   std :: ofstream students;
   students.open(File);
@@ -161,7 +161,7 @@ R"({
   }
 })";
   size_t len[4] = {11, 3, 3, 11};
-  std::vector<Student> student = parser(string_t, len) ;
+  std::vector<Student> student = parser(string_t, len);
   string File = "Students.json";
   std :: ofstream students;
   students.open(File);
@@ -185,7 +185,7 @@ TEST(EFile, Empt_false) {
 R"({
 })";
   size_t len[4] = {11, 3, 3, 11};
-  std::vector<Student> student = parser(string_f, len) ;
+  std::vector<Student> student = parser(string_f, len);
   string FileF = "Student_false.json";
   std :: ofstream students;
   students.open(FileF);
@@ -207,7 +207,7 @@ R"({
   }
 })";
   size_t len[4] = {11, 3, 3, 11};
-  std::vector<Student> student = parser(string_f, len) ;
+  std::vector<Student> student = parser(string_f, len);
   string FileF = "Student_false.json";
   std :: ofstream students;
   students.open(FileF);
@@ -252,7 +252,7 @@ R"({
   }
 })";
   size_t len[4] = {11, 3, 3, 11};
-  std::vector<Student> student = parser(string_f, len) ;
+  std::vector<Student> student = parser(string_f, len);
   string FileF = "Student_false.json";
   std :: ofstream students;
   students.open(FileF);
@@ -309,7 +309,7 @@ R"(|---------------|--------|-----|---------|
 |---------------|--------|-----|---------|
 )";
   size_t len[4] = {11, 3, 3, 11};
-  std::vector<Student> student = parser(string_t, len) ;
+  std::vector<Student> student = parser(string_t, len);
   string FileF = "Student_false.json";
   std :: ofstream students;
   students.open(FileF);
