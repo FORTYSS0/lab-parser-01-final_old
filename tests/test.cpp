@@ -9,7 +9,7 @@ TEST(Example, EmptyTest) {
 }
 
 TEST(WFile, Open){
-  const char string_t[] =\
+  string string_t =\
 R"({
   "items": [
     {
@@ -39,12 +39,12 @@ R"({
     "count": 3
   }
 })";
-  string File = "Students.json";
+  //string File = "Students.json";
   std :: ofstream students;
-  students.open(File, std::ios::out);
+  students.open("Students.json", std::ios::out);
   students << string_t;
   students.close();
-  bool flag = input(File);
+  bool flag = input("Students.json");
   EXPECT_TRUE(flag);
 }
 TEST(WFile, Emptynis) {
