@@ -258,7 +258,8 @@ R"({
   students.open(FileF);
   students << string_f;
   students.close();
-  string err = "The data in _meta is not equal to the length of the items array";
+  string err =
+      "The data in _meta is not equal to the length of the items array";
   try{
     input(FileF);
   } catch (std::runtime_error& error) {
