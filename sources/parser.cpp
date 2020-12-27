@@ -27,10 +27,10 @@ bool input(const string& File) {
 size_t Size(const json& value, const string& valueName, size_t& stringLength) {
   if (static_cast<size_t>(
           std::to_string(static_cast<float>(value.at(valueName))).length()) >
-      stringLength)
+      stringLength) {
     return static_cast<int>(
         std::to_string(static_cast<float>(value.at(valueName))).length());
-  else {
+  } else {
     return stringLength;
   }
 }
