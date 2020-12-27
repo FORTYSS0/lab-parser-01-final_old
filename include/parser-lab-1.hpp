@@ -13,7 +13,7 @@
 #include <stdexcept>
 
 
-#include "student.h"
+#include "../include/student.h"
 using string = std::string;
 using json = nlohmann::json;
 
