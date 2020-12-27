@@ -11,6 +11,7 @@
 #include <vector>
 #include <exception>
 #include <stdexcept>
+#include <string>
 
 
 #include "../include/student.h"
