@@ -1,7 +1,7 @@
 // Copyright 2020 by FORTYSS
 
 
-#include <parser-lab-1.hpp>
+#include <parser.hpp>
 
 bool input(const string& File) {
   std::ifstream file;
@@ -9,15 +9,15 @@ bool input(const string& File) {
   if (!file) {
     throw std::runtime_error("There is no file with this name");
   } else {
-    if (datas.empty()) {
+    if (data.empty()) {
       throw std::runtime_error("json" + File + " the file is empty");
     } else {
-      file >> datas;
-      if (!datas["items"].is_array()) {
+      file >> data;
+      if (!data["items"].is_array()) {
         throw std::runtime_error{"The items field is not an array"};
       }
     }
-    if (datas["items"].size() != datas["meta"]["count"].get<size_t>()) {
+    if (data["items"].size() != data["meta"]["count"].get<size_t>()) {
       throw std::runtime_error{
           "The data in _meta is not equal to the length of the items array"};
     }
@@ -65,7 +65,7 @@ std::any getValue(const json& value, const string& valueName,
 std::vector<Student> parser(const string& File, size_t len[4]) {
   std::vector<Student> students;
   if (input(File)) {
-    for (const auto& student : datas.at("items")) {
+    for (const auto& student : data.at("items")) {
       Student student_now;
       student_now.Name = student.at("name");
       if (static_cast<size_t>(student_now.Name.length()) > len[0])

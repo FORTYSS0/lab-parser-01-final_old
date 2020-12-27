@@ -1,6 +1,6 @@
 #ifndef TEMPLATE_STUDENT_H
 #define TEMPLATE_STUDENT_H
-#include "parser-lab-1.hpp"
+#include "parser.hpp"
 
 struct Student {
   std::string Name;

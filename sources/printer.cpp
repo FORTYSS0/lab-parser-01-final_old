@@ -1,6 +1,6 @@
 // Copyright 2020 by FORTYSS
 
-#include "parser-lab-1.hpp"
+#include "parser.hpp"
 std::string any_print(const std::any& input) {
   string output;
   if (input.type() == typeid(string)) {

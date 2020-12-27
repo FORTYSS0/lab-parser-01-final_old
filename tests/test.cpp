@@ -1,7 +1,8 @@
 // Copyright 2020 by FORTYSS
 
 #include <gtest/gtest.h>
-#include "parser-lab-1.hpp"
+
+#include "parser.hpp"
 
 TEST(Example, EmptyTest) {
     EXPECT_TRUE(true);

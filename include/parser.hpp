@@ -18,7 +18,7 @@
 using string = std::string;
 using json = nlohmann::json;
 
-json datas;
+json data;
 
 std::vector<Student> parser(const string& File, size_t len[4]);
 bool input(const string& File);
