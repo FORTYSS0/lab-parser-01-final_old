@@ -5,22 +5,31 @@ std::string any_print(const std::any& input) {
   string output;
   if (input.type() == typeid(string))
     output = std::any_cast<std::string>(input);
-  else if (input.type() == typeid(int))
-    output = std::any_cast<int>(input);
-  else if (input.type() == typeid(float))
-    output = std::any_cast<float>(input);
-  else if (input.type() == typeid(nullptr))
-    output = "null";
-  else if (input.type() == typeid(std::vector<string>)) {
-    std::vector<string> vector = std::any_cast<std::vector<string>>(input);
-    int size = vector.size();
-    if (size > 1)
-      output = std::to_string(size) + " item";
-    else if (size == 1)
-      output = vector[0];
-  } else {
-    std::bad_cast ex;
-    throw ex;
+  else {
+    if (input.type() == typeid(int)) {
+      output = std::any_cast<int>(input);
+    } else {
+      if (input.type() == typeid(float)) {
+        output = std::any_cast<float>(input);
+      } else {
+        if (input.type() == typeid(nullptr)) {
+          output = "null";
+        } else {
+          if (input.type() == typeid(std::vector<string>)) {
+            std::vector<string> vector =
+                std::any_cast<std::vector<string>>(input);
+            int size = vector.size();
+            if (size > 1)
+              output = std::to_string(size) + " item";
+            else if (size == 1)
+              output = vector[0];
+          } else {
+            std::bad_cast ex;
+            throw ex;
+          }
+        }
+      }
+    }
   }
   return output;
 }
