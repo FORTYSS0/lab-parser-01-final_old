@@ -1,6 +1,5 @@
-//
-// Created by FORTYSS on 05.11.2020.
-//
+// Copyright 2020 by FORTYSS
+
 #include "parser-lab-1.hpp"
 std::string any_print(const std::any& input) {
   string output;
