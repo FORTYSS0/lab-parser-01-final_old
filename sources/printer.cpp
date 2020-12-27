@@ -3,9 +3,9 @@
 #include "parser-lab-1.hpp"
 std::string any_print(const std::any& input) {
   string output;
-  if (input.type() == typeid(string))
+  if (input.type() == typeid(string)) {
     output = std::any_cast<std::string>(input);
-  else {
+  }else {
     if (input.type() == typeid(int)) {
       output = std::any_cast<int>(input);
     } else {
