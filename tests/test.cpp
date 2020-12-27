@@ -9,7 +9,7 @@ TEST(Example, EmptyTest) {
 }
 
 TEST(WFile, Open){
-  string string_t =\
+  const char string_t[] =\
 R"({
   "items": [
     {
