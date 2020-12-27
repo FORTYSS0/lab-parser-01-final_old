@@ -9,23 +9,22 @@ bool input(const string& File) {
   file.open(File);
   if (!file) {
     throw std::runtime_error("There is no file with this name");
-  } else {
-    if (data.empty()) {
-      throw std::runtime_error("json" + File + " the file is empty");
-    } else {
-      file >> data;
-      if (!data["items"].is_array()) {
-        throw std::runtime_error{"The items field is not an array"};
-      }
-    }
-    if (data["items"].size() != data["meta"]["count"].get<size_t>()) {
-      throw std::runtime_error{
-          "The data in _meta is not equal to the length of the items array"};
-    }
-    file.close();
-    return true;
   }
+  if (data.empty()) {
+    throw std::runtime_error("json" + File + " the file is empty");
+  }
+  file >> data;
+  if (!data["items"].is_array()) {
+    throw std::runtime_error{"The items field is not an array"};
+  }
+  if (data["items"].size() != data["meta"]["count"].get<size_t>()) {
+    throw std::runtime_error{
+        "The data in _meta is not equal to the length of the items array"};
+  }
+  file.close();
+  return true;
 }
+
 size_t Size(const json& value, const string& valueName, size_t& stringLength) {
   if (static_cast<size_t>(
           std::to_string(static_cast<float>(value.at(valueName))).length()) >
