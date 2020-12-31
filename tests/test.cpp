@@ -142,7 +142,7 @@ R"({
   EXPECT_TRUE(flag);*/
 }
 TEST(WFile, Equalit) {
-  const char string_t[] =\
+  string string_t =\
 R"({
   "items": [
     {
@@ -179,7 +179,7 @@ R"({
   students.open(File, std::ios::out);
   students << string_t;
   students.close();
-  std::vector<Student> student = parser(File, len);
+  //std::vector<Student> student = parser(File, len);
   bool flag = input(File);
   EXPECT_TRUE(flag);
 }
