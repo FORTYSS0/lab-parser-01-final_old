@@ -9,7 +9,7 @@ TEST(Example, EmptyTest) {
 }
 
 TEST(WFile, Open){
-  string string_t =\
+  string string_t =
 R"({
   "items": [
     {
@@ -50,7 +50,7 @@ R"({
   EXPECT_TRUE(flag);
 }
 TEST(WFile, Emptynis) {
-  string string_t =\
+  string string_t =
 R"({
   "items": [
     {
@@ -91,7 +91,7 @@ R"({
   EXPECT_TRUE(flag);
 }
 TEST(WFile, Array) {
-  string string_t =\
+  string string_t =
 R"({
   "items": [
     {
@@ -142,7 +142,7 @@ R"({
   EXPECT_TRUE(flag);*/
 }
 TEST(WFile, Equalit) {
-  string string_t =\
+  string string_t =
 R"({
   "items": [
     {
