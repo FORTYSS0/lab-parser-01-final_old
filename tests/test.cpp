@@ -205,8 +205,8 @@ R"({
   size_t len[4] = {11, 3, 3, 11};
   string FileF = "Student_false.json";
   std :: ofstream students(FileF, std::ios::out);
-  students.open(FileF, std::ios::out);
-  //students << string_f;
+  //students.open(FileF, std::ios::out);
+  students << string_f;
   students.close();
 
   string err = "json" + FileF + " the file is empty";
