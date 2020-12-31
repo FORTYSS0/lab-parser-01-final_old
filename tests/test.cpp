@@ -192,7 +192,7 @@ TEST(EFile, Open_false) {
   string FileF = "../sources/Student_false.jso";
   string err = "There is no file with this name";
   try{
-    input(FileF,data);
+    input(FileF, data);
   } catch (std::runtime_error& error) {
     EXPECT_EQ(error.what(), err);
   }
