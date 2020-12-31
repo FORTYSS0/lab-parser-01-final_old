@@ -39,16 +39,16 @@ std::any getValue(const json& value, const string& valueName,
   }
   if (value.at(valueName).is_number_integer()) {
     stringLength = Size(value, valueName, stringLength);
-    return std::any_cast<int>(value.at(valueName));
+    return static_cast<int>(value.at(valueName));
   } else if (value.at(valueName).is_number_float()) {
     stringLength = Size(value, valueName, stringLength);
-    return std::any_cast<double>(value.at(valueName));
+    return static_cast<double>(value.at(valueName));
   } else if (value.at(valueName).is_string()) {
     stringLength = Size(value, valueName, stringLength);
-    return std::any_cast<string>(value.at(valueName));
+    return static_cast<string>(value.at(valueName));
   } else if (valueName == "debt") {
     if (value.at(valueName).is_array()) {
-      return std::any_cast<std::vector<std::string>>(value.at(valueName));
+      return static_cast<std::vector<std::string>>(value.at(valueName));
     } else if (value.at(valueName).is_null()) {
       return nullptr;
     } else {
