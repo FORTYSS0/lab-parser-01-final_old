@@ -211,7 +211,7 @@ R"({
 
   string err = "json" + FileF + " the file is empty";
   try{
-    std::vector<Student> student = parser(FileF, len,data);
+    std::vector<Student> student = parser(FileF, len, data);
     input(FileF, data);
   } catch (std::runtime_error& error) {
     EXPECT_EQ(error.what(), err);
