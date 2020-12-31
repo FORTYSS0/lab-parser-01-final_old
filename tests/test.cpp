@@ -209,7 +209,7 @@ R"({
   students << string_f;
   students.close();
 
-  string err = "json" + FileF + " the file is empty";
+  string err = "json " + FileF + " the file is empty";
   try{
     std::vector<Student> student = parser(FileF, len, data);
     input(FileF, data);
