@@ -176,7 +176,7 @@ R"({
   std::vector<Student> student = parser(string_t, len);
   string File = "Students.json";
   std :: ofstream students;
-  students.open(File);
+  students.open(File, std::ios::app);
   students << string_t;
   students.close();
   bool flag = input(File);
