@@ -23,13 +23,23 @@ bool input(const string& File, json& data) {
 }
 
 size_t Size(const json& data, const string& valueName, size_t& stringLength) {
-  if (static_cast<size_t>(
-          std::to_string(static_cast<float>(data.at(valueName))).length()) >
-      stringLength) {
-    return static_cast<size_t>(
-        std::to_string(static_cast<float>(data.at(valueName))).length());
+  if(data.at(valueName).is_string())
+  {
+    if (static_cast<size_t>(static_cast<string>(data.at(valueName)).length()) >
+        stringLength) {
+      return static_cast<size_t>(static_cast<string>(data.at(valueName)).length());
+    } else {
+      return stringLength;
+    }
   } else {
-    return stringLength;
+    if (static_cast<size_t>(
+            std::to_string(static_cast<float>(data.at(valueName))).length()) >
+        stringLength) {
+      return static_cast<size_t>(
+          std::to_string(static_cast<float>(data.at(valueName))).length());
+    } else {
+      return stringLength;
+    }
   }
 }
 std::any getValue(const json& data, const string& valueName,
