@@ -15,7 +15,7 @@ bool input(const string& File, json& data) {
 
   if (!data["items"].is_array())
     throw std::runtime_error{"The items field is not an array"};
-  if (data["items"].size() != data["meta"]["count"].get<size_t>())
+  if (data["items"].size() != data["_meta"]["count"].get<size_t>())
     throw std::runtime_error{
         "The data in _meta is not equal to the length of the items array"};
   file.close();
