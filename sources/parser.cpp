@@ -3,8 +3,8 @@
 
 #include <parser.hpp>
 
-bool input(const string& File) {
-  json data;
+bool input(const string& File, json& data) {
+  //json data;
   std::ifstream file;
   file.open(File);
   if (!file)
@@ -60,10 +60,9 @@ std::any getValue(const json& value, const string& valueName,
                              valueName);
   }
 }
-std::vector<Student> parser(const string& File, size_t len[4]) {
-  json data;
+std::vector<Student> parser(const string& File, size_t len[4], json& data) {
   std::vector<Student> students;
-  if (input(File)) {
+  if (input(File, data)) {
     for (const auto& student : data.at("items")) {
       Student student_now;
       student_now.Name = student.at("name");
