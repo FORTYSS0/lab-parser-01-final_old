@@ -142,7 +142,7 @@ R"({
   EXPECT_TRUE(flag);*/
 }
 TEST(WFile, Equalit) {
-  string string_t =\
+  const char string_t[] =\
 R"({
   "items": [
     {
@@ -175,8 +175,8 @@ R"({
   size_t len[4] = {11, 3, 3, 11};
  // std::vector<Student> student = parser(string_t, len);
   string File = "Students.json";
-  std :: ofstream students(File, std::ios::out);
-  //students.open(File, std::ios::out);
+  std :: ofstream students;
+  students.open(File, std::ios::out);
   students << string_t;
   students.close();
   std::vector<Student> student = parser(File, len);
