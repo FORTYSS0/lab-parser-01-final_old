@@ -22,34 +22,34 @@ bool input(const string& File, json& data) {
   return true;
 }
 
-size_t Size(const json& value, const string& valueName, size_t& stringLength) {
+size_t Size(const json& data, const string& valueName, size_t& stringLength) {
   if (static_cast<size_t>(
-          std::to_string(static_cast<float>(value.at(valueName))).length()) >
+          std::to_string(static_cast<float>(data.at(valueName))).length()) >
       stringLength) {
-    return static_cast<int>(
-        std::to_string(static_cast<float>(value.at(valueName))).length());
+    return static_cast<size_t>(
+        std::to_string(static_cast<float>(data.at(valueName))).length());
   } else {
     return stringLength;
   }
 }
-std::any getValue(const json& value, const string& valueName,
+std::any getValue(const json& data, const string& valueName,
                   size_t& stringLength) {
-  if (!value.at(valueName)) {
+  if (!data.at(valueName)) {
     throw std::runtime_error{"There is no field with with name: " + valueName};
   }
-  if (value.at(valueName).is_number_integer()) {
-    stringLength = Size(value, valueName, stringLength);
-    return static_cast<int>(value.at(valueName));
-  } else if (value.at(valueName).is_number_float()) {
-    stringLength = Size(value, valueName, stringLength);
-    return static_cast<double>(value.at(valueName));
-  } else if (value.at(valueName).is_string()) {
-    stringLength = Size(value, valueName, stringLength);
-    return static_cast<string>(value.at(valueName));
+  if (data.at(valueName).is_number_integer()) {
+    stringLength = Size(data, valueName, stringLength);
+    return static_cast<int>(data.at(valueName));
+  } else if (data.at(valueName).is_number_float()) {
+    stringLength = Size(data, valueName, stringLength);
+    return static_cast<double>(data.at(valueName));
+  } else if (data.at(valueName).is_string()) {
+    stringLength = Size(data, valueName, stringLength);
+    return static_cast<string>(data.at(valueName));
   } else if (valueName == "debt") {
-    if (value.at(valueName).is_array()) {
-      return static_cast<std::vector<std::string>>(value.at(valueName));
-    } else if (value.at(valueName).is_null()) {
+    if (data.at(valueName).is_array()) {
+      return static_cast<std::vector<std::string>>(data.at(valueName));
+    } else if (data.at(valueName).is_null()) {
       return nullptr;
     } else {
       throw std::runtime_error("There is no correct-type field with name: " +
