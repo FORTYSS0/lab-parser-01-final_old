@@ -219,15 +219,15 @@ R"({
     "count": 3
   }
 })";
-  size_t len[4] = {11, 3, 3, 11};
+ // size_t len[4] = {11, 3, 3, 11};
   string FileF = "Student_false.json";
   std :: ofstream students;
   students.open(FileF, std::ios::out);
   students << string_f;
   students.close();
-  std::vector<Student> student = parser(FileF, len);
   string err = "The items field is not an array";
   try{
+    //std::vector<Student> student = parser(FileF, len);
     input(FileF);
   } catch (std::runtime_error& error) {
     EXPECT_EQ(error.what(), err);
@@ -270,10 +270,10 @@ R"({
   students.open(FileF, std::ios::out);
   students << string_f;
   students.close();
-  std::vector<Student> student = parser(FileF, len);
   string err =
       "The data in _meta is not equal to the length of the items array";
   try{
+    //std::vector<Student> student = parser(FileF, len);
     input(FileF);
   } catch (std::runtime_error& error) {
     EXPECT_EQ(error.what(), err);
