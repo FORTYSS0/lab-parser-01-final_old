@@ -121,7 +121,16 @@ R"({
     "count": 3
   }
 })";
-
+  size_t len[4] = {11, 3, 3, 11};
+  string File = "Students.json";
+  std :: ofstream students;
+  students.open(File, std::ios::out);
+  students << string_t;
+  std::vector<Student> student = parser(File, len);
+  bool flag = input(File);
+  students.close();
+  EXPECT_TRUE(flag);
+/*
   size_t len[4] = {11, 3, 3, 11};
   std::vector<Student> student = parser(string_t, len);
   string File = "Students.json";
@@ -130,7 +139,7 @@ R"({
   students << string_t;
   students.close();
   bool flag = input(File);
-  EXPECT_TRUE(flag);
+  EXPECT_TRUE(flag);*/
 }
 TEST(WFile, Equalit) {
   string string_t =\
