@@ -179,7 +179,7 @@ R"({
   students.open(File, std::ios::app);
   students << string_t;
   students.close();
-  std::vector<Student> student = parser(string_t, len);
+  std::vector<Student> student = parser(File, len);
   bool flag = input(File);
   EXPECT_TRUE(flag);
 }
