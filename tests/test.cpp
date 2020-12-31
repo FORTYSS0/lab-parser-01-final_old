@@ -197,7 +197,7 @@ TEST(EFile, Empt_false) {
   string string_f =\
 R"({
 })";
-  size_t len[4] = {11, 3, 3, 11};
+  //size_t len[4] = {11, 3, 3, 11};
   string FileF = "Student_false.json";
   std :: ofstream students;
   students.open(FileF, std::ios::out);
@@ -219,7 +219,7 @@ R"({
     "count": 3
   }
 })";
-  size_t len[4] = {11, 3, 3, 11};
+  //size_t len[4] = {11, 3, 3, 11};
   string FileF = "Student_false.json";
   std :: ofstream students;
   students.open(FileF, std::ios::out);
@@ -264,7 +264,7 @@ R"({
     "count": 4
   }
 })";
-  size_t len[4] = {11, 3, 3, 11};
+  //size_t len[4] = {11, 3, 3, 11};
   //std::vector<Student> student = parser(string_f, len);
   string FileF = "Student_false.json";
   std :: ofstream students;
