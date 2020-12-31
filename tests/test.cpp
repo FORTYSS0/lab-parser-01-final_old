@@ -9,7 +9,7 @@ TEST(Example, EmptyTest) {
 }
 
 TEST(WFile, Open){
-  string string_t =
+  string string_t =\
 R"({
   "items": [
     {
@@ -50,7 +50,7 @@ R"({
   EXPECT_TRUE(flag);
 }
 TEST(WFile, Emptynis) {
-  string string_t =
+  string string_t =\
 R"({
   "items": [
     {
@@ -91,7 +91,7 @@ R"({
   EXPECT_TRUE(flag);
 }
 TEST(WFile, Array) {
-  string string_t =
+  string string_t =\
 R"({
   "items": [
     {
@@ -142,7 +142,7 @@ R"({
   EXPECT_TRUE(flag);*/
 }
 TEST(WFile, Equalit) {
-  string string_t =
+  string string_t =\
 R"({
   "items": [
     {
@@ -196,13 +196,13 @@ TEST(EFile, Empt_false) {
   string string_f =\
 R"({
 })";
-  //size_t len[4] = {11, 3, 3, 11};
+  size_t len[4] = {11, 3, 3, 11};
   string FileF = "Student_false.json";
   std :: ofstream students;
   students.open(FileF, std::ios::out);
   students << string_f;
   students.close();
-  //std::vector<Student> student = parser(string_f, len);
+  std::vector<Student> student = parser(FileF, len);
   string err = "json" + FileF + " the file is empty";
   try{
     input(FileF);
@@ -218,13 +218,13 @@ R"({
     "count": 3
   }
 })";
-  //size_t len[4] = {11, 3, 3, 11};
+  size_t len[4] = {11, 3, 3, 11};
   string FileF = "Student_false.json";
   std :: ofstream students;
   students.open(FileF, std::ios::out);
   students << string_f;
   students.close();
-  //std::vector<Student> student = parser(string_f, len);
+  std::vector<Student> student = parser(FileF, len);
   string err = "The items field is not an array";
   try{
     input(FileF);
@@ -263,13 +263,13 @@ R"({
     "count": 4
   }
 })";
-  //size_t len[4] = {11, 3, 3, 11};
+  size_t len[4] = {11, 3, 3, 11};
   string FileF = "Student_false.json";
   std :: ofstream students;
   students.open(FileF, std::ios::out);
   students << string_f;
   students.close();
-  //std::vector<Student> student = parser(string_f, len);
+  std::vector<Student> student = parser(FileF, len);
   string err =
       "The data in _meta is not equal to the length of the items array";
   try{
@@ -327,7 +327,7 @@ R"(|---------------|--------|-----|---------|
   students.open(FileF, std::ios::out);
   students << string_t;
   students.close();
-  std::vector<Student> student = parser(string_t, len);
+  std::vector<Student> student = parser(FileF, len);
   print(student, len);
   std::stringstream table_out;
   EXPECT_EQ(table_t, table_out.str());
