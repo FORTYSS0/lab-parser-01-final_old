@@ -202,9 +202,10 @@ R"({
   students.open(FileF, std::ios::out);
   students << string_f;
   students.close();
-  std::vector<Student> student = parser(FileF, len);
+
   string err = "json" + FileF + " the file is empty";
   try{
+    std::vector<Student> student = parser(FileF, len);
     input(FileF);
   } catch (std::runtime_error& error) {
     EXPECT_EQ(error.what(), err);
