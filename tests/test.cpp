@@ -172,13 +172,14 @@ R"({
     "count": 3
   }
 })";
+  size_t len[4] = {11, 3, 3, 11};
  // std::vector<Student> student = parser(string_t, len);
   string File = "Students.json";
   std :: ofstream students;
   students.open(File, std::ios::out);
   students << string_t;
   students.close();
-  //std::vector<Student> student = parser(File, len);
+  std::vector<Student> student = parser(File, len);
   bool flag = input(File);
   EXPECT_TRUE(flag);
 }
