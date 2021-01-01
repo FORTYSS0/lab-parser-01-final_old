@@ -288,7 +288,7 @@ R"({
   }
 }
 
-TEST(Table, Print_Table) {
+/*TEST(Table, Print_Table) {
   string string_t =\
 R"({
   "items": [
@@ -351,4 +351,4 @@ R"({
     std::vector<Student> student = parser(FileF, len, data);
     input(FileF, data);
     EXPECT_TRUE(true);
-}
+}*/
