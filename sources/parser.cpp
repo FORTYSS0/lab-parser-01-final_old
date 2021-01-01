@@ -97,5 +97,7 @@ std::vector<Student> parser(const string& File, size_t len[4], json& data) {
       student_now.Debt = getValue(student, "debt", len[3]);
     }
   }
+  std::cout << students.size();
   return students;
+
 }
