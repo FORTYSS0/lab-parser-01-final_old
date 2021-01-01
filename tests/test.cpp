@@ -319,16 +319,16 @@ R"({
     "count": 3
   }
 })";
-  string table_t =\
-R"(| name            | group     | avg   | debt      |
-|-----------------|-----------|-------|-----------|
-| Ivanov Petr     | 1         |4.25   | null      |
-|-----------------|-----------|-------|-----------|
-| Sidorov Iva     | 31        |4      | C++       |
-|-----------------|-----------|-------|-----------|
-| Pertov Nikita   | IU8-31    | 3.33  | 3 items   |
-|-----------------|-----------|-------|-----------|
-)";
+//  string table_t =\
+//R"(| name            | group     | avg   | debt      |
+//|-----------------|-----------|-------|-----------|
+//| Ivanov Petr     | 1         |4.25   | null      |
+//|-----------------|-----------|-------|-----------|
+//| Sidorov Iva     | 31        |4      | C++       |
+//|-----------------|-----------|-------|-----------|
+//| Pertov Nikita   | IU8-31    | 3.33  | 3 items   |
+//|-----------------|-----------|-------|-----------|
+//)";
   //json data;
   //size_t len[4] = {11, 3, 3, 11};
   //string FileF = "Student.json";
@@ -343,7 +343,7 @@ R"(| name            | group     | avg   | debt      |
   //EXPECT_EQ(table_t, table_out.str());
   json data;
   size_t len[4] = {11, 3, 3, 11};
-  string FileF = "Student_false.json";
+  string FileF = "Student.json";
   std :: ofstream students;
   students.open(FileF, std::ios::out);
   students << string_t;
