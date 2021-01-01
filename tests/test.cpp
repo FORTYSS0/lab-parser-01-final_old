@@ -272,7 +272,7 @@ R"({
   }
 })";
   json data;
- // size_t len[4] = {11, 3, 3, 11};
+  size_t len[4] = {11, 3, 3, 11};
   string FileF = "Student_false.json";
   std :: ofstream students;
   students.open(FileF, std::ios::out);
@@ -281,7 +281,7 @@ R"({
   string err =
       "The data in _meta is not equal to the length of the items array";
   try{
-    //std::vector<Student> student = parser(FileF, len);
+    std::vector<Student> student = parser(FileF, len);
     input(FileF, data);
   } catch (std::runtime_error& error) {
     EXPECT_EQ(error.what(), err);
