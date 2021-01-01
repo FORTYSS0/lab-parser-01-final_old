@@ -348,8 +348,7 @@ R"(| name            | group     | avg   | debt      |
   students.open(FileF, std::ios::out);
   students << string_t;
   students.close();
- // string err =      "The data in _meta is not equal to the length of the items array";
-  try{
+   try{
     std::vector<Student> student = parser(FileF, len, data);
     input(FileF, data);
   } catch (std::runtime_error& error) {
