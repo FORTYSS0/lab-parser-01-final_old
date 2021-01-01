@@ -288,7 +288,7 @@ R"({
   }
 }
 
-/*TEST(Table, Print_Table) {
+TEST(Table, Print_Table) {
   string string_t =\
 R"({
   "items": [
@@ -319,28 +319,16 @@ R"({
     "count": 3
   }
 })";
-//  string table_t =\
-//R"(| name            | group     | avg   | debt      |
-//|-----------------|-----------|-------|-----------|
-//| Ivanov Petr     | 1         |4.25   | null      |
-//|-----------------|-----------|-------|-----------|
-//| Sidorov Iva     | 31        |4      | C++       |
-//|-----------------|-----------|-------|-----------|
-//| Pertov Nikita   | IU8-31    | 3.33  | 3 items   |
-//|-----------------|-----------|-------|-----------|
-//)";
-  //json data;
-  //size_t len[4] = {11, 3, 3, 11};
-  //string FileF = "Student.json";
-  //std :: ofstream students;
-  //students.open(FileF, std::ios::out);
-  //students << string_t;
-  //students.close();
-  //std::vector<Student> student = parser(FileF, len, data);
-  //print(student, len);
-  //std::stringstream table_out;
-  //EXPECT_TRUE(true);
-  //EXPECT_EQ(table_t, table_out.str());
+  string table_t =\
+R"(| name            | group     | avg   | debt      |
+|-----------------|-----------|-------|-----------|
+| Ivanov Petr     | 1         |4.25   | null      |
+|-----------------|-----------|-------|-----------|
+| Sidorov Iva     | 31        |4      | C++       |
+|-----------------|-----------|-------|-----------|
+| Pertov Nikita   | IU8-31    | 3.33  | 3 items   |
+|-----------------|-----------|-------|-----------|
+)";
   json data;
   size_t len[4] = {11, 3, 3, 11};
   string FileF = "Student.json";
@@ -348,7 +336,9 @@ R"({
   students.open(FileF, std::ios::out);
   students << string_t;
   students.close();
-    std::vector<Student> student = parser(FileF, len, data);
-    input(FileF, data);
-    EXPECT_TRUE(true);
-}*/
+  std::vector<Student> student = parser(FileF, len, data);
+  print(student, len);
+  std::stringstream table_out;
+  //EXPECT_TRUE(true);
+  EXPECT_EQ(table_t, table_out.str());
+}
