@@ -348,10 +348,7 @@ R"({
   students.open(FileF, std::ios::out);
   students << string_t;
   students.close();
-   try{
     std::vector<Student> student = parser(FileF, len, data);
     input(FileF, data);
-  } catch (std::runtime_error& error) {
     EXPECT_TRUE(true);
-  }
 }
