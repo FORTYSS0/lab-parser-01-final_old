@@ -281,7 +281,7 @@ R"({
   string err =
       "The data in _meta is not equal to the length of the items array";
   try{
-    std::vector<Student> student = parser(FileF, len);
+    std::vector<Student> student = parser(FileF, len, data);
     input(FileF, data);
   } catch (std::runtime_error& error) {
     EXPECT_EQ(error.what(), err);
