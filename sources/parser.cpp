@@ -19,6 +19,7 @@ bool input(const string& File, json& data) {
     throw std::runtime_error{
         "The data in _meta is not equal to the length of the items array"};
   file.close();
+  std::cout<<"true";
   return true;
 }
 
