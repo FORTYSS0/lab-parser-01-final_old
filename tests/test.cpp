@@ -329,16 +329,31 @@ R"(| name            | group     | avg   | debt      |
 | Pertov Nikita   | IU8-31    | 3.33  | 3 items   |
 |-----------------|-----------|-------|-----------|
 )";
+  //json data;
+  //size_t len[4] = {11, 3, 3, 11};
+  //string FileF = "Student.json";
+  //std :: ofstream students;
+  //students.open(FileF, std::ios::out);
+  //students << string_t;
+  //students.close();
+  //std::vector<Student> student = parser(FileF, len, data);
+  //print(student, len);
+  //std::stringstream table_out;
+  //EXPECT_TRUE(true);
+  //EXPECT_EQ(table_t, table_out.str());
   json data;
   size_t len[4] = {11, 3, 3, 11};
-  string FileF = "Student.json";
+  string FileF = "Student_false.json";
   std :: ofstream students;
   students.open(FileF, std::ios::out);
   students << string_t;
   students.close();
-  std::vector<Student> student = parser(FileF, len, data);
-  //print(student, len);
-  //std::stringstream table_out;
-  EXPECT_TRUE(true);
-  //EXPECT_EQ(table_t, table_out.str());
+ // string err =
+      "The data in _meta is not equal to the length of the items array";
+  try{
+    std::vector<Student> student = parser(FileF, len, data);
+    input(FileF, data);
+  } catch (std::runtime_error& error) {
+    EXPECT_TRUE(true);
+  }
 }
