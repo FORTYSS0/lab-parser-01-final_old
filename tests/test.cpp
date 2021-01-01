@@ -331,14 +331,14 @@ R"(| name            | group     | avg   | debt      |
 )";
   json data;
   size_t len[4] = {11, 3, 3, 11};
-  string FileF = "Student_false.json";
+  string FileF = "Student.json";
   std :: ofstream students;
   students.open(FileF, std::ios::out);
   students << string_t;
   students.close();
   std::vector<Student> student = parser(FileF, len, data);
   print(student, len);
-  std::stringstream table_out;
+  //std::stringstream table_out;
   EXPECT_TRUE(true);
   //EXPECT_EQ(table_t, table_out.str());
 }
