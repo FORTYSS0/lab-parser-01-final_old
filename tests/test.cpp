@@ -48,6 +48,7 @@ R"({
   students.close();
   std::vector<Student> student = parser(File, len, data);
   bool flag = input(File, data);
+  print(student, len);
   EXPECT_TRUE(flag);
 }
 TEST(WFile, Emptynis) {
