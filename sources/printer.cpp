@@ -7,7 +7,8 @@ std::string any_print(const std::any& input) {
     output = std::any_cast<std::string>(input);
   }else {
     if (input.type() == typeid(int)) {
-      output = std::any_cast<std::string>(std::to_string(std::any_cast<int>(input)));
+      output = std::any_cast<std::string>(
+          std::to_string(std::any_cast<int>(input)));
       std::cout << output;
     } else {
       if (input.type() == typeid(double)) {
