@@ -88,9 +88,9 @@ std::vector<Student> parser(const string& File, size_t len[4], json& data) {
   std::vector<Student> students;
   if (input(File, data)) {
     for (const auto& student : data.at("items")) {
-      std::cout << "as" << student.at("name");
       Student student_now;
       student_now.Name = student.at("name");
+      std::cout << "as" << student_now.Name;
       if (static_cast<size_t>(student_now.Name.length()) > len[0])
         len[0] = static_cast<size_t>(student_now.Name.length());
       student_now.Group = getValue(student, "group", len[1]);
