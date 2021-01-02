@@ -3,13 +3,13 @@
 #include "parser.hpp"
 std::string any_print(const std::any& input) {
   string output;
-  std::cout << "rrrr";
   if (input.type() == typeid(string)) {
     output = std::any_cast<std::string>(input);
   }else {
     if (input.type() == typeid(int)) {
       std::cout << "ttt";
       output = std::any_cast<int>(input);
+      std::cout << output;
     } else {
       if (input.type() == typeid(double)) {
         output = std::any_cast<double>(input);
