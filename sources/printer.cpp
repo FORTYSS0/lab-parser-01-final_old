@@ -9,10 +9,10 @@ std::string any_print(const std::any& input) {
     if (input.type() == typeid(int)) {
       output = std::any_cast<std::string>(
           std::to_string(std::any_cast<int>(input)));
-      std::cout << output;
     } else {
       if (input.type() == typeid(double)) {
-        output = std::any_cast<double>(input);
+        output = std::any_cast<std::string>(
+            std::to_string(std::any_cast<double>(input)));
       } else {
         if (input.type() == typeid(nullptr)) {
           output = "null";
