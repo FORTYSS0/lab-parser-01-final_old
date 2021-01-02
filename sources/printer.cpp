@@ -39,7 +39,7 @@ std::string any_print(const std::any& input) {
   return output;
 }
 void print(const std::vector<Student>& students, size_t len[4]) {
-  std::cout << '|';
+  std::cout << '\n' << '|';
   std::cout << std::setfill(' ') << " name" << std::setw(len[0]);
   std::cout << '|';
   std::cout << std::setfill(' ') << " group" << std::setw(len[1]);
@@ -61,7 +61,7 @@ void print(const std::vector<Student>& students, size_t len[4]) {
   std::cout << std::endl;
 
   for (const auto& student : students) {
-    std::cout << '\n' << '|' << ' ' << std::setfill(' ') << std::left
+    std::cout << '|' << ' ' << std::setfill(' ') << std::left
               << std::setw(len[0] + 3) << student.Name << '|' << ' ';
     std::cout << std::setfill(' ') << std::setw(len[1] + 4)
               << any_print(student.Group) << '|' << ' ';
