@@ -99,6 +99,5 @@ std::vector<Student> parser(const string& File, size_t len[4], json& data) {
       students.push_back(student_now);
     }
   }
-  std::cout << students.size();
   return students;
 }
