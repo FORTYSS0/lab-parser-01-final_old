@@ -11,8 +11,8 @@ std::string any_print(const std::any& input) {
           std::to_string(std::any_cast<int>(input)));
     } else {
       if (input.type() == typeid(double)) {
-        output = std::any_cast<std::string>(
-            std::to_string(std::any_cast<double>(input)));
+        std::cout << std::any_cast<double>(input);
+        output = std::any_cast<double>(input);
       } else {
         if (input.type() == typeid(nullptr)) {
           output = "null";
