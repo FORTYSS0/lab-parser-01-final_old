@@ -71,7 +71,7 @@ size_t Size(const json& data, const string& valueName, size_t& stringLength) {
 }
 std::any getValue(const json& data, const string& valueName,
                   size_t& stringLength) {
-  // std::cout << "as" << data.at(valueName);
+   std::cout << "as" << data.at(valueName);
   //if (!data.at(valueName).empty()) {
   //throw std::runtime_error{"There is no field with with name: " + valueName};
   //} else {
@@ -109,7 +109,7 @@ std::vector<Student> parser(const string& File, size_t len[4], json& data) {
       if (static_cast<size_t>(student_now.Name.length()) > len[0])
         len[0] = static_cast<size_t>(student_now.Name.length());
       student_now.Group = getValue(student, "group", len[1]);
-      std::cout << any_print(student_now.Group);
+      //std::cout << any_print(student_now.Group);
       student_now.Avg = getValue(student, "avg", len[2]);
       student_now.Debt = getValue(student, "debt", len[3]);
       students.push_back(student_now);
