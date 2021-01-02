@@ -9,8 +9,8 @@ std::string any_print(const std::any& input) {
     if (input.type() == typeid(int)) {
       output = std::any_cast<int>(input);
     } else {
-      if (input.type() == typeid(float)) {
-        output = std::any_cast<float>(input);
+      if (input.type() == typeid(double)) {
+        output = std::any_cast<double>(input);
       } else {
         if (input.type() == typeid(nullptr)) {
           output = "null";
@@ -19,10 +19,13 @@ std::string any_print(const std::any& input) {
             std::vector<string> vector =
                 std::any_cast<std::vector<string>>(input);
             int size = vector.size();
-            if (size > 1)
+            if (size > 1) {
               output = std::to_string(size) + " item";
-            else if (size == 1)
-              output = vector[0];
+            } else {
+              if (size == 1) {
+                output = vector[0];
+              }
+            }
           } else {
             std::bad_cast ex;
             throw ex;
