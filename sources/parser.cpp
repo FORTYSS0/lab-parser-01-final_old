@@ -57,7 +57,7 @@ size_t Size(const json& data, const string& valueName, size_t& stringLength) {
 }
 std::any getValue(const json& data, const string& valueName,
                   size_t& stringLength) {
-  std::cout << "as" << data.at(valueName);
+  //std::cout << "as" << data.at(valueName);
   if (!data.at(valueName)) {
     throw std::runtime_error{"There is no field with with name: " + valueName};
   }
