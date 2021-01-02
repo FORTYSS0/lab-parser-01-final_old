@@ -61,7 +61,7 @@ void print(const std::vector<Student>& students, size_t len[4]) {
   std::cout << std::endl;
 
   for (const auto& student : students) {
-    std::cout << '|' << ' ' << std::setfill(' ') << std::left
+    std::cout << '\n' << '|' << ' ' << std::setfill(' ') << std::left
               << std::setw(len[0] + 3) << student.Name << '|' << ' ';
     std::cout << std::setfill(' ') << std::setw(len[1] + 4)
               << any_print(student.Group) << '|' << ' ';
