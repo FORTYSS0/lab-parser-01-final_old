@@ -77,7 +77,7 @@ std::any getValue(const json& data, const string& valueName,
   //} else {
     if (data.at(valueName).is_number_integer()) {
       stringLength = Size(data, valueName, stringLength);
-      std::cout << " " << static_cast<int>(data.at(valueName)) << " ";
+      std::cout << "rrrrrrrr " << static_cast<int>(data.at(valueName)) << " ";
       return static_cast<int>(data.at(valueName));
     } else if (data.at(valueName).is_number_float()) {
       stringLength = Size(data, valueName, stringLength);
