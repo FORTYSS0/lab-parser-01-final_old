@@ -65,9 +65,11 @@ std::any getValue(const json& data, const string& valueName,
     stringLength = Size(data, valueName, stringLength);
     return static_cast<int>(data.at(valueName));
   } else if (data.at(valueName).is_number_float()) {
+    std::cout << "as" << data.at(valueName);
     stringLength = Size(data, valueName, stringLength);
     return static_cast<double>(data.at(valueName));
   } else if (data.at(valueName).is_string()) {
+    std::cout << "as" << data.at(valueName);
     stringLength = Size(data, valueName, stringLength);
     return static_cast<string>(data.at(valueName));
   } else if (valueName == "debt") {
