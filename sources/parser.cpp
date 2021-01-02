@@ -87,7 +87,7 @@ std::any getValue(const json& data, const string& valueName,
 std::vector<Student> parser(const string& File, size_t len[4], json& data) {
   std::vector<Student> students;
   if (input(File, data)) {
-    std::cout << data.empty();
+    std::cout << "as" << data.empty();
     for (const auto& student : data.at("items")) {
       Student student_now;
       student_now.Name = student.at("name");
