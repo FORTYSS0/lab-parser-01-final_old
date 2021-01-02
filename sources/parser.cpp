@@ -61,6 +61,7 @@ std::any getValue(const json& data, const string& valueName,
     throw std::runtime_error{"There is no field with with name: " + valueName};
   }
   if (data.at(valueName).is_number_integer()) {
+    std::cout << "as" << data.at(valueName);
     stringLength = Size(data, valueName, stringLength);
     return static_cast<int>(data.at(valueName));
   } else if (data.at(valueName).is_number_float()) {
