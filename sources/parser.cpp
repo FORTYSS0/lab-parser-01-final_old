@@ -62,15 +62,12 @@ std::any getValue(const json& data, const string& valueName,
   //throw std::runtime_error{"There is no field with with name: " + valueName};
   //}
   if (data.at(valueName).is_number_integer()) {
-    std::cout << "as" << data.at(valueName);
     stringLength = Size(data, valueName, stringLength);
     return static_cast<int>(data.at(valueName));
   } else if (data.at(valueName).is_number_float()) {
-    std::cout << "as" << data.at(valueName);
     stringLength = Size(data, valueName, stringLength);
     return static_cast<double>(data.at(valueName));
   } else if (data.at(valueName).is_string()) {
-    std::cout << "as" << data.at(valueName);
     stringLength = Size(data, valueName, stringLength);
     return static_cast<string>(data.at(valueName));
   } else if (valueName == "debt") {
@@ -97,7 +94,6 @@ std::vector<Student> parser(const string& File, size_t len[4], json& data) {
       if (static_cast<size_t>(student_now.Name.length()) > len[0])
         len[0] = static_cast<size_t>(student_now.Name.length());
       student_now.Group = getValue(student, "group", len[1]);
-      std::cout << "as" << any_print(student_now.Group);
       student_now.Avg = getValue(student, "avg", len[2]);
       student_now.Debt = getValue(student, "debt", len[3]);
       students.push_back(student_now);
