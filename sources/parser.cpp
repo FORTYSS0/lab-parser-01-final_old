@@ -87,7 +87,7 @@ std::any getValue(const json& data, const string& valueName,
     throw std::runtime_error("There is no correct-type field with name: " +
                              valueName);
   }
-}
+//}
 std::vector<Student> parser(const string& File, size_t len[4], json& data) {
   std::vector<Student> students;
   if (input(File, data)) {
