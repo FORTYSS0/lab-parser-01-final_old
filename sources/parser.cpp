@@ -90,12 +90,12 @@ std::vector<Student> parser(const string& File, size_t len[4], json& data) {
     for (const auto& student : data.at("items")) {
       Student student_now;
       student_now.Name = student.at("name");
-      std::cout << "as" << student_now.Name;
       if (static_cast<size_t>(student_now.Name.length()) > len[0])
         len[0] = static_cast<size_t>(student_now.Name.length());
       student_now.Group = getValue(student, "group", len[1]);
       student_now.Avg = getValue(student, "avg", len[2]);
       student_now.Debt = getValue(student, "debt", len[3]);
+      std::cout << "as" << any_print(student_now.Debt);
       students.push_back(student_now);
     }
   }
