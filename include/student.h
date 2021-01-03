@@ -3,10 +3,10 @@
 #include "parser.hpp"
 
 struct Student {
-  std::string Name;
-  std::any Group;
-  std::any Avg;
-  std::any Debt;
+  string Name;
+  any Group;
+  any Avg;
+  any Debt;
 };
 
 #endif  // TEMPLATE_STUDENT_H

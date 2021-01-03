@@ -12,10 +12,10 @@
 #include <exception>
 #include <stdexcept>
 #include <string>
-
+using namespace std;
 
 #include "../include/student.h"
-using string = std::string;
+//using string = std::string;
 using json = nlohmann::json;
 
 
