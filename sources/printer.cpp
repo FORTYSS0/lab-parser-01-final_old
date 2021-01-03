@@ -1,7 +1,7 @@
 // Copyright 2020 by FORTYSS
 
 #include "parser.hpp"
-std::string any_print(const std::any& input) {
+std::string any_print(const any& input) {
   string output;
   if (input.type() == typeid(string)) {
     output = std::any_cast<std::string>(input);

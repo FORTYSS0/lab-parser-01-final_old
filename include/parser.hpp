@@ -18,8 +18,6 @@ using string = std::string;
 using json = nlohmann::json;
 using any = std::any;
 
-
-
 std::vector<Student> parser(const string& File, size_t len[4], json& data);
 bool input(const string& File, json& data);
 string any_print(const any& object);
