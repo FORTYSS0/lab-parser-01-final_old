@@ -321,8 +321,7 @@ R"({
   }
 })";
   string table_t =\
-R"(
-| name            | group     | avg       | debt          |
+R"(| name            | group     | avg       | debt          |
 |-----------------|-----------|-----------|---------------|
 | Ivanov Petr     | 1         | 4.25      | null          |
 |-----------------|-----------|-----------|---------------|
@@ -342,5 +341,7 @@ R"(
   print(student, len);
   std::stringstream table_out;
   //EXPECT_TRUE(true);
-  EXPECT_EQ(table_t, table_out.str());
+  std::cout << table_t;
+  std::stringstream table_origin;
+  EXPECT_EQ(table_origin.str(), table_out.str());
 }
