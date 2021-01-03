@@ -71,9 +71,9 @@ size_t Size(const json& data, const string& valueName, size_t& stringLength) {
 }
 std::any getValue(const json& data, const string& valueName,
                   size_t& stringLength) {
-  if (!data.at(valueName).empty()) {
-  throw std::runtime_error{"There is no field with with name: " + valueName};
-  } else {
+ // if (!data.at(valueName).empty()) {
+  //throw std::runtime_error{"There is no field with with name: " + valueName};
+  //} else {
     if (data.at(valueName).is_number_integer()) {
       stringLength = Size(data, valueName, stringLength);
       //std::cout << "rrrrrrrr " << static_cast<int>(data.at(valueName)) << " ";
@@ -98,7 +98,7 @@ std::any getValue(const json& data, const string& valueName,
       throw std::runtime_error("There is no correct-type field with name: " +
                                valueName);
     }
-  }
+  //}
 }
 std::vector<Student> parser(const string& File, size_t len[4], json& data) {
   std::vector<Student> students;
