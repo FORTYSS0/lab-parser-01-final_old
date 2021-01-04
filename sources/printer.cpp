@@ -7,12 +7,14 @@ std::string any_print(const std::any& input) {
     output = std::any_cast<std::string>(input);
   }else {
     if (input.type() == typeid(int)) {
-      std::cout << std::any_cast<int>(input);
-      output = std::any_cast<int>(input);
+        std::stringstream out;
+        out << std::any_cast<int>(input);
+        output = out.str();
     } else {
       if (input.type() == typeid(double)) {
-        std::cout << std::any_cast<double>(input);
-        output = std::any_cast<double>(input);
+          std::stringstream out;
+        out << std::any_cast<double>(input);
+        output = out.str();
       } else {
         if (input.type() == typeid(nullptr)) {
           output = "null";
