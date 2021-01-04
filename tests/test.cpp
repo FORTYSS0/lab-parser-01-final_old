@@ -328,8 +328,7 @@ R"(| name            | group     | avg       | debt          |
 | Sidorov Ivan    | 31        | 4         | C++           |
 |-----------------|-----------|-----------|---------------|
 | Pertov Nikita   | IU8-31    | 3.33      | 3 item        |
-|-----------------|-----------|-----------|---------------|
-)";
+|-----------------|-----------|-----------|---------------|)";
   json data;
   size_t len[4] = {11, 3, 3, 11};
   string FileF = "Student.json";
@@ -343,5 +342,5 @@ R"(| name            | group     | avg       | debt          |
   //EXPECT_TRUE(true);
   std::cout << table_t;
   std::stringstream table_origin;
-  EXPECT_EQ(table_origin.str(), table_out.str());
+  EXPECT_EQ(table_out.str(), table_t);
 }
