@@ -76,7 +76,7 @@ if(BUILD_DOCS)
     # add_dependencies(install docs) need to call target docs before install or package
 endif()
 
-include(CPackConfig.cmake)
+#include(CPackConfig.cmake)
 
 install(TARGETS ${PROJECT_NAME} tests
         EXPORT "${PROJECT_NAME}-targets"
