@@ -1,9 +1,9 @@
-cmake_minimum_required(VERSION 3.4)
+cmake_minimum_required(VERSION 3.12)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-option(BUILD_COVERAGE "Build coverage" ON)
+option(BUILD_COVERAGE "Build coverage" OFF)
 
 set(
         HUNTER_CACHE_SERVERS
@@ -20,7 +20,6 @@ HunterGate(
 
 
 project(lab-parser-01)
-#string(APPEND CMAKE_TOOLCHAIN_FILE "${CMAKE_CURRENT_SOURCE_DIR}/GCC-9FIX.cmake")
 string(APPEND CMAKE_CXX_FLAGS " -pedantic -Werror -Wall -Wextra")
 string(APPEND CMAKE_CXX_FLAGS " -Wno-unused-command-line-argument")
 string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
@@ -29,15 +28,13 @@ hunter_add_package(GTest)
 find_package(GTest CONFIG REQUIRED)
 
 hunter_add_package(nlohmann_json)
-find_package(nlohmann_json CONFIG REQUIRED)
+find_package(nlohmann_json 3.2.0 CONFIG REQUIRED)
 
 add_library(lab-parser-01 STATIC
         ${CMAKE_CURRENT_SOURCE_DIR}/sources/parser.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/sources/printer.cpp
         )
 add_executable(tests
-        sources/printer.cpp
-        sources/printer.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
         )
 target_include_directories(lab-parser-01
