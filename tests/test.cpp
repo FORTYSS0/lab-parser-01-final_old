@@ -338,7 +338,6 @@ R"(| name            | group     | avg       | debt          |
   students << string_t;
   students.close();
   std::vector<Student> student = parser(FileF, len, data);
-  print(student, len);
   std::string table_out = print(student, len);
 
   //EXPECT_TRUE(true);
