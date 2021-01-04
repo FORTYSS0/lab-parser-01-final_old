@@ -83,6 +83,6 @@ std::string print(const std::vector<Student>& students, size_t len[4]) {
     out << '|';
     out << std::endl;
   }
-  std::cout << out.str();
+  //std::cout << out.str();
     return out.str();
 }
