@@ -20,5 +20,5 @@ using json = nlohmann::json;
 std::vector<Student> parser(const string& File, size_t len[4], json& data);
 bool input(const string& File, json& data);
 string any_print(const std::any& object);
-void print(const std::vector<Student>& students, size_t len[4]);
+string print(const std::vector<Student>& students, size_t len[4]);
 #endif  // INCLUDE_PARSER_HPP_

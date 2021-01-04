@@ -38,46 +38,49 @@ std::string any_print(const std::any& input) {
   }
   return output;
 }
-void print(const std::vector<Student>& students, size_t len[4]) {
-  std::cout << '|' << std::setfill(' ') << " name"
+std::string print(const std::vector<Student>& students, size_t len[4]) {
+    std::stringstream out;
+  out << '|' << std::setfill(' ') << " name"
             << std::setw(len[0]) << '|';
-  std::cout << std::setfill(' ') << " group" << std::setw(len[1]);
-  std::cout << '|';
-  std::cout << std::setfill(' ') << " avg" << std::setw(len[2]);
-  std::cout << '|';
-  std::cout << std::setfill(' ') << " debt" << std::setw(len[3]);
-  std::cout << '|';
-  std::cout << std::endl;
-  std::cout << '|';
-  std::cout << std::setfill('-') << std::setw(len[0] + 5);
-  std::cout << '|';
-  std::cout << std::setfill('-') << std::setw(len[1] + 6);
-  std::cout << '|';
-  std::cout << std::setfill('-') << std::setw(len[2] + 4);
-  std::cout << '|';
-  std::cout << std::setfill('-') << std::setw(len[3] + 5);
-  std::cout << '|';
-  std::cout << std::endl;
+  out << std::setfill(' ') << " group" << std::setw(len[1]);
+  out << '|';
+  out << std::setfill(' ') << " avg" << std::setw(len[2]);
+  out << '|';
+  out << std::setfill(' ') << " debt" << std::setw(len[3]);
+  out << '|';
+  out << std::endl;
+  out << '|';
+  out << std::setfill('-') << std::setw(len[0] + 5);
+  out << '|';
+  out << std::setfill('-') << std::setw(len[1] + 6);
+  out << '|';
+  out << std::setfill('-') << std::setw(len[2] + 4);
+  out << '|';
+  out << std::setfill('-') << std::setw(len[3] + 5);
+  out << '|';
+  out << std::endl;
 
   for (const auto& student : students) {
-    std::cout << '|' << ' ' << std::setfill(' ') << std::left
+    out << '|' << ' ' << std::setfill(' ') << std::left
               << std::setw(len[0] + 3) << student.Name << '|' << ' ';
-    std::cout << std::setfill(' ') << std::setw(len[1] + 4)
+    out << std::setfill(' ') << std::setw(len[1] + 4)
               << any_print(student.Group) << '|' << ' ';
-    std::cout << std::setfill(' ') << std::setw(len[2] + 2)
+    out << std::setfill(' ') << std::setw(len[2] + 2)
               << any_print(student.Avg) << '|' << ' ';
-    std::cout << std::setfill(' ') << std::setw(len[3] + 3)
+    out << std::setfill(' ') << std::setw(len[3] + 3)
               << any_print(student.Debt) << '|';
-    std::cout << std::endl;
-    std::cout << std::setfill('-') << std::setw(len[0] + 5);
-    std::cout << '|';
-    std::cout << std::setfill('-') << std::setw(len[1] + 6);
-    std::cout << '|';
-    std::cout << std::setfill('-') << std::setw(len[2] + 4);
-    std::cout << '|';
-    std::cout << std::setfill('-') << std::setw(len[3] + 5);
-    std::cout << '|';
-    std::cout << '|';
-    std::cout << std::endl;
+    out << std::endl;
+    out << std::setfill('-') << std::setw(len[0] + 5);
+    out << '|';
+    out << std::setfill('-') << std::setw(len[1] + 6);
+    out << '|';
+    out << std::setfill('-') << std::setw(len[2] + 4);
+    out << '|';
+    out << std::setfill('-') << std::setw(len[3] + 5);
+    out << '|';
+    out << '|';
+    out << std::endl;
   }
+  std::cout << out.str();
+    return out.str();
 }
