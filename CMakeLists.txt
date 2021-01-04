@@ -52,7 +52,7 @@ if(BUILD_TESTS)
             ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
             )
     target_link_libraries(tests ${PROJECT_NAME} GTest::gtest_main)
-    target_link_libraries(parser nlohmann_json::nlohmann_json)
+    target_link_libraries(tests nlohmann_json::nlohmann_json)
     enable_testing()
     add_test(NAME unit_tests COMMAND tests)
 endif()
