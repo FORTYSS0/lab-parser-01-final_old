@@ -320,7 +320,7 @@ R"({
     "count": 3
   }
 })";
-  const char table_t[] =\
+  string table_t =\
 R"(| name            | group     | avg       | debt          |
 |-----------------|-----------|-----------|---------------|
 | Ivanov Petr     | 1         | 4.25      | null          |
@@ -341,7 +341,7 @@ R"(| name            | group     | avg       | debt          |
   print(student, len);
   std::stringstream table_out;
   //EXPECT_TRUE(true);
-  //std::cout << table_t;
-  //std::stringstream table_origin;
-  EXPECT_EQ(table_t, table_out.str());
+  std::cout << table_t;
+  std::stringstream table_origin;
+  EXPECT_EQ(table_origin, table_out.str());
 }
