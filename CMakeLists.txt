@@ -35,9 +35,9 @@ add_library(${PROJECT_NAME} STATIC
         ${CMAKE_CURRENT_SOURCE_DIR}/sources/printer.cpp
         )
 
-add_executable(tests
-        ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
-        )
+#add_executable(tests
+ #       ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
+  #      )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
         "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
