@@ -342,5 +342,6 @@ R"(| name            | group     | avg       | debt          |
   //EXPECT_TRUE(true);
   //std::cout << table_t;
   //std::stringstream table_origin;
-  EXPECT_EQ(table_out.str(), table_t);
+  System::String^ s = gcnew System::String(table_t.c_str());
+  EXPECT_EQ(table_out.str(), s);
 }
