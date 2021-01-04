@@ -49,7 +49,7 @@ target_include_directories(tests
         PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
         )
 
-target_link_libraries(tests GTest::gtest_main LabPars)
+target_link_libraries(tests GTest::gtest_main parser)
 target_link_libraries(parser nlohmann_json::nlohmann_json)
 enable_testing()
 add_test(NAME unit_tests COMMAND tests)
