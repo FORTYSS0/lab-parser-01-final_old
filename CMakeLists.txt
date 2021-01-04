@@ -71,7 +71,7 @@ if(BUILD_COVERAGE)
     #find_package(codecov)
     #add_coverage(${PROJECT_NAME})
     #add_coverage(tests)
-    coverage_evaluate()
+    #coverage_evaluate()
     endif()
 
 if(BUILD_DOCS)
