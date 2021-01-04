@@ -29,7 +29,7 @@ string(APPEND CMAKE_CXX_FLAGS " -Wshadow -Wnon-virtual-dtor")
 hunter_add_package(GTest)
 find_package(GTest CONFIG REQUIRED)
 
-add_library(${PROJECT_NAME} parser
+add_library(${PROJECT_NAME} STATIC
         # enum your files and delete this comment
         ${CMAKE_CURRENT_SOURCE_DIR}/sources/parser.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/sources/printer.cpp
@@ -44,7 +44,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         "$<INSTALL_INTERFACE:include>"
         )
 
-target_link_libraries(parser ${PROJECT_NAME})
+target_link_libraries(tests ${PROJECT_NAME})
 
 if(BUILD_TESTS)
     add_executable(tests
@@ -78,7 +78,7 @@ endif()
 
 include(CPackConfig.cmake)
 
-install(TARGETS ${PROJECT_NAME} demo
+install(TARGETS ${PROJECT_NAME} tests
         EXPORT "${PROJECT_NAME}-targets"
         RUNTIME DESTINATION bin
         ARCHIVE DESTINATION lib
