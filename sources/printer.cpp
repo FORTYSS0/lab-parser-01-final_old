@@ -56,8 +56,7 @@ void print(const std::vector<Student>& students, size_t len[4]) {
   std::cout << std::setfill('-') << std::setw(len[2] + 4);
   std::cout << '|';
   std::cout << std::setfill('-') << std::setw(len[3] + 5);
-  std::cout << '|';
-  std::cout << std::endl;
+  std::cout << '|\n';
 
   for (const auto& student : students) {
     std::cout << '|' << ' ' << std::setfill(' ') << std::left
@@ -77,7 +76,6 @@ void print(const std::vector<Student>& students, size_t len[4]) {
     std::cout << '|';
     std::cout << std::setfill('-') << std::setw(len[3] + 5);
     std::cout << '|';
-    std::cout << '|';
-    std::cout << std::endl;
+    std::cout << '|\n';
   }
 }
