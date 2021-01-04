@@ -43,7 +43,7 @@ add_executable(tests
         ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
         )
 
-target_include_directories(lab-parser-01
+target_include_directories(parser
         PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
         )
 target_include_directories(tests
@@ -51,7 +51,7 @@ target_include_directories(tests
         )
 
 target_link_libraries(tests GTest::main GTest::gtest)
-target_link_libraries(lab-parser-01 nlohmann_json::nlohmann_json)
+target_link_libraries(parser nlohmann_json::nlohmann_json)
 
 enable_testing()
 add_test(NAME unit_tests COMMAND tests)
@@ -60,7 +60,7 @@ if(BUILD_COVERAGE)
     set(ENABLE_COVERAGE ON CACHE BOOL "Enable coverage build." FORCE)
     list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
     find_package(codecov)
-    add_coverage(lab-parser-01)
+    add_coverage(parser)
     add_coverage(tests)
     list(APPEND LCOV_REMOVE_PATTERNS "'${PROJECT_SOURCE_DIR}/tests/*'")
     coverage_evaluate()
