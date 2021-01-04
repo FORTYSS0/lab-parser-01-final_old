@@ -340,7 +340,7 @@ R"(| name            | group     | avg       | debt          |
   print(student, len);
   std::stringstream table_out;
   //EXPECT_TRUE(true);
-  //std::cout << table_t;
-  //std::stringstream table_origin;
-  EXPECT_EQ(table_out.str(), table_t);
+  std::cout << table_t;
+  std::stringstream table_origin;
+  EXPECT_EQ(table_out.str(), table_origin);
 }
