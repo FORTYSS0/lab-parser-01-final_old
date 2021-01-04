@@ -38,26 +38,27 @@ add_library(parser STATIC
         ${CMAKE_CURRENT_SOURCE_DIR}/sources/printer.cpp
         )
 
-add_executable(tests
-        ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
-        )
+#add_executable(tests
+ #       ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
+  #      )
 
 target_include_directories(parser PUBLIC
         "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
         "$<INSTALL_INTERFACE:include>"
         )
-target_include_directories(tests PUBLIC
-        "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
-        "$<INSTALL_INTERFACE:include>"
-        )
+
 
 #target_link_libraries(tests ${PROJECT_NAME})
 
 if(BUILD_TESTS)
- #   add_executable(tests
-  #          # TODO: enum your files and delete this comment
-     #       ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
-      #      )
+    add_executable(tests
+            # TODO: enum your files and delete this comment
+            ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
+            )
+    target_include_directories(tests PUBLIC
+            "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+            "$<INSTALL_INTERFACE:include>"
+            )
     target_link_libraries(tests ${PROJECT_NAME} GTest::gtest_main)
     target_link_libraries(parser nlohmann_json::nlohmann_json)
     enable_testing()
