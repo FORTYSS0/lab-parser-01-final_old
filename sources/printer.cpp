@@ -46,8 +46,8 @@ void print(const std::vector<Student>& students, size_t len[4]) {
   std::cout << std::setfill(' ') << " avg" << std::setw(len[2]);
   std::cout << '|';
   std::cout << std::setfill(' ') << " debt" << std::setw(len[3]);
-  std::cout << '|';
-  std::cout << std::endl;
+  std::cout << "|\n";
+  //std::cout << std::endl;
   std::cout << '|';
   std::cout << std::setfill('-') << std::setw(len[0] + 5);
   std::cout << '|';
@@ -56,8 +56,8 @@ void print(const std::vector<Student>& students, size_t len[4]) {
   std::cout << std::setfill('-') << std::setw(len[2] + 4);
   std::cout << '|';
   std::cout << std::setfill('-') << std::setw(len[3] + 5);
-  std::cout << '|';
-  std::cout << std::endl;
+  std::cout << "|\n";
+  //std::cout << std::endl;
 
   for (const auto& student : students) {
     std::cout << '|' << ' ' << std::setfill(' ') << std::left
@@ -67,8 +67,8 @@ void print(const std::vector<Student>& students, size_t len[4]) {
     std::cout << std::setfill(' ') << std::setw(len[2] + 2)
               << any_print(student.Avg) << '|' << ' ';
     std::cout << std::setfill(' ') << std::setw(len[3] + 3)
-              << any_print(student.Debt) << '|';
-    std::cout << std::endl;
+              << any_print(student.Debt) << "|\n";
+    //std::cout << std::endl;
     std::cout << std::setfill('-') << std::setw(len[0] + 5);
     std::cout << '|';
     std::cout << std::setfill('-') << std::setw(len[1] + 6);
@@ -77,6 +77,7 @@ void print(const std::vector<Student>& students, size_t len[4]) {
     std::cout << '|';
     std::cout << std::setfill('-') << std::setw(len[3] + 5);
     std::cout << '|';
-    std::cout << std::endl;
+    std::cout << "|\n";
+    //std::cout << std::endl;
   }
 }
